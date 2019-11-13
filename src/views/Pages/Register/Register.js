@@ -29,12 +29,17 @@ class Register extends Component {
     var studentdiv = document.getElementById('Studentdiv');
     var sponsdiv = document.getElementById('sponsdiv');
     var adminsdiv = document.getElementById('adminsdiv');
+    var universitydiv = document.getElementById('universitydiv');
+
 
     if (choix === "Student") {
       if (studentdiv.style.display === "") {
         //Hidden studentdiv
         studentdiv.style.display = "none";
         studentdiv.style.height = "0";			// Optionnel rétablir la hauteur
+
+        universitydiv.style.display = "none";
+        universitydiv.style.height="0";
       }
       else {
         //Hidden sponsdiv
@@ -46,6 +51,9 @@ class Register extends Component {
         //Show studentdiv
         studentdiv.style.display = "";
         studentdiv.style.height = "auto";			// Optionnel libérer l'espace
+
+        universitydiv.style.display = "";
+        universitydiv.style.height="auto";
       }
 
 
@@ -65,6 +73,8 @@ class Register extends Component {
         //Show sponsdiv
         sponsdiv.style.display = "";
         sponsdiv.style.height = "auto";			// Optionnel libérer l'espace
+        universitydiv.style.display = "none";
+        universitydiv.style.height="0";
       }
 
     } else {
@@ -72,6 +82,9 @@ class Register extends Component {
         //Hidden adminsdiv
         adminsdiv.style.display = "none";
         adminsdiv.style.height = "0";			// Optionnel rétablir la hauteur
+
+        universitydiv.style.display = "none";
+        universitydiv.style.height="0";
       }
       else {
         //Hidden studentdiv
@@ -83,6 +96,9 @@ class Register extends Component {
         //Show adminsdiv
         adminsdiv.style.display = "";
         adminsdiv.style.height = "auto";			// Optionnel libérer l'espace
+
+        universitydiv.style.display = "";
+        universitydiv.style.height="auto";
       }
     }
   }
@@ -199,17 +215,122 @@ class Register extends Component {
                     </InputGroup>
 
 
-
-
-                    <div id="Studentdiv" style={{ display: 'none' }} >
-                      <InputGroup className="mb-3">
+                    <div id="universitydiv" style={{ display: 'none' }} >
+                    <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-graduation"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="University" autoComplete="University" />
+                        <Input type="select" name="university" id="university">
+                          <option disabled selected>Select your university</option>
+                        <option value="University_of_Tunis">University of Tunis</option>
+                        <option value="University of_Tunis El Manar ">University of Tunis El Manar </option>
+                        <option value="University_of_Cartage">University of Cartage</option>
+                        <option value="University_of_Sousse">University of Sousse</option>
+                        <option value="University_of_Sfax ">University of Sfax</option>
+                        <option value="University_of_Manouba">University of Manouba</option>
+                        <option value="University_of_Monastir">University of Monastir</option>
+                        <option value="University_of_Ez-Zitouna">University of Ez-Zitouna</option>
+                        <option value="University_of_Virtual">University of Virtual</option>
+                        <option value="University_of_Gafsa">University of Gafsa</option>
+                        <option value="University_of_Jendouba">University of Jendouba</option>
+                        <option value="University_of_Gabes">University of Jendouba</option>
+                        <option value="University_of_Kairouan">University of Kairouan</option>
+                        <option value="Higher_Institutes_of_Technological_Studies">Higher Institutes of Technological Studies</option>
+                      </Input>
                       </InputGroup>
+                      </div>
+
+                      <div id="tunisdiv" style={{ display: 'none' }} >
+                    <InputGroup className="mb-3">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="icon-graduation"></i>
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input type="select" name="tunisdiv" id="tunisdiv">
+                          <option disabled selected>Select </option>
+                        <option value="fshst">Faculté des Sciences Humaines et Sociales de Tunis</option>
+                        <option value="essect ">Ecole Supérieure des Sciences Economiques et Commerciales de Tunis </option>
+                        <option value="ens">Ecole Normale Supérieure</option>
+                        <option value="esstt">Ecole Supérieure des Sciences et Techniques de Tunis</option>
+                        <option value="ipstt">Institut Préparatoire aux Etudes d'Ingénieurs de Tunis</option>
+                        <option value="ipelsht">Institut Préparatoire aux Etudes Littéraires et de Sciences Humaines de Tunis</option>
+                        <option value="isgt"> Institut Supérieur de Gestion de Tunis</option>
+                        <option value="isefc">Institut Supérieur de l'Education et de la Formation Continue</option>
+                        <option value="isbat">Institut Supérieur des Beaux Arts de Tunis</option>
+                        <option value="University_of_Gafsa">University of Gafsa</option>
+                        <option value="ism">Institut Supérieur de Musique</option>
+                        <option value="isad">Institut Supérieur d'Art Dramatique</option>
+                        <option value="isscmpt">Institut Supérieur des Sciences Culturelles et Métiers du Patrimoine de Tunis</option>
+                        <option value="iseaht">Institut Supérieur des Etudes Appliquées en Humanités de Tunis</option>
+                        <option value="isajc">Institut Supérieur de l'Animation pour la Jeunesse et la Culture</option>
+                        <option value="iseahz">Institut Supérieur des Études Appliquées en Humanités de Zaghouan</option>
+                        <option value="inp">Institut National du Patrimoine</option>
+                        <option value="tbs">Tunis Business School</option>
+                      
+                      </Input>
+                      </InputGroup>
+                      </div>
+
+
+
+
+
+                      <div id="manardiv" style={{ display: 'none' }} >
+                    <InputGroup className="mb-3">
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="icon-graduation"></i>
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input type="select" name="manardiv" id="manardiv">
+                          <option disabled selected>Select </option>
+                        <option value="fdspt">Faculté de Droit et des Sciences Politiques de Tunis</option>
+                        <option value="fsegt">Faculté des Sciences Economique et de Gestion de Tunis </option>
+                        <option value="fst">Faculté des sciences de tunis</option>
+                        <option value="fsm">Faculté de Médecine de Tunis</option>
+                        <option value="ensit">Ecole Nationale d'Ingénieurs de Tunis</option>
+                        <option value="iblv">Institut Bourguiba des Langues Vivantes</option>
+                        <option value="ipeim"> Institut Préparatoire aux Etudes d'Ingénieurs d'El Manar</option>
+                        <option value="issba">Institut Supérieur des Sciences Biologiques Appliquées</option>
+                        <option value="isi">Institut Supérieur d'Informatique d'El Manar</option>
+                        <option value="issht">Institut Supérieur des Sciences Humaines de Tunis</option>
+                        <option value="istm"> Institut Supérieur des Technologies Médicales</option>
+                        <option value="esstst">Ecole Supérieure des Sciences et Techniques de la Santé de Tunis</option>
+                        <option value="issit">Institut Supérieur des Sciences infirmières de Tunis</option>
+                        <option value="ip">Institut Pasteur</option>
+                        <option value="irvt">Institut de Recherche Vétérinaire de Tunis</option>
+                        
+                      </Input>
+                      </InputGroup>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div id="Studentdiv" style={{ display: 'none' }} >
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
@@ -220,6 +341,9 @@ class Register extends Component {
                       </InputGroup>
 
                     </div>
+
+
+                   
 
 
                     <div id="sponsdiv" style={{ display: 'none' }} >
@@ -256,14 +380,6 @@ class Register extends Component {
 
 
                     <div id="adminsdiv" style={{ display: 'none' }} >
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-graduation"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="text" placeholder="University" autoComplete="University" />
-                      </InputGroup>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
