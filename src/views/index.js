@@ -1,12 +1,14 @@
 
 
 import Dashboard from './Dashboard';
-import { Login, Page404, Page500, Register } from './Pages';
+import { Login, Page404, Page500, Register,Forgetpassword,Verification } from './Pages';
 
 
 export {
   Badges,
   Page404,
+  Forgetpassword,
+  Verification,
   Page500,
   Register,
   Login,

@@ -27,6 +27,16 @@ export default {
           url: '/login',
           icon: 'icon-star',
         },
+         {
+          name: 'forgetpassword',
+          url: '/Forgetpassword',
+          icon: 'icon-star',
+        },
+        {
+          name: 'Verification',
+          url: '/Verification',
+          icon: 'icon-star',
+        },
         {
           name: 'Register',
           url: '/register',
