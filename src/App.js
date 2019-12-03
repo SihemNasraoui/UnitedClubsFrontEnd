@@ -11,9 +11,9 @@ const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 // Pages
 const Login = React.lazy(() => import('./views/Pages/Login'));
 const Club = React.lazy(() => import('./views/Pages/Club/club'));
+const Club1 = React.lazy(() => import('./views/Pages/Club/club1'));
 
 const Forgetpassword = React.lazy(() => import('./views/Pages/Forgetpassword'));
-const Verification = React.lazy(() => import('./views/Pages/Verification'));
 const Register = React.lazy(() => import('./views/Pages/Register'));
 const Page404 = React.lazy(() => import('./views/Pages/Page404'));
 const Page500 = React.lazy(() => import('./views/Pages/Page500'));
