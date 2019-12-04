@@ -11,7 +11,7 @@ class ClubProfil extends Component {
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-header">
-                    <i>About</i>
+                    About
                   </div>
                   <div class="card-body">
                     
@@ -25,13 +25,13 @@ class ClubProfil extends Component {
                         <li class="breadcrumb-item active" aria-current="page">Number of member : </li>
                       </ol>
                       <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page"> Adress : </li>
+                        <li class="breadcrumb-item active" aria-current="page"> Region : </li>
                       </ol>
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item active" aria-current="page"> Creation date : </li>
                       </ol>
                       <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">University : </li>
+                        <li class="breadcrumb-item active" aria-current="page">Establishment : </li>
                       </ol>
                                
                    

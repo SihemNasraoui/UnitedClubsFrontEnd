@@ -8,7 +8,8 @@ import Profil from'./Profil';
 import Updateprofil from'./Updateprofil';
 import AddUniversity from './AddUniversity';
 import ClubProfil from './ClubProfil';
+import AddEstablishment from './AddEstablishment';
 
 export {
-  Login, Page404, Page500, Register,Forgetpassword, Verification, Profil, Updateprofil, AddUniversity, ClubProfil
+  Login, Page404, Page500, Register,Forgetpassword, Verification, Profil, Updateprofil, AddUniversity, AddEstablishment, ClubProfil
 };

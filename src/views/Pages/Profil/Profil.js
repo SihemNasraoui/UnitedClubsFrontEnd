@@ -11,7 +11,7 @@ class Profil extends Component {
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-header">
-                    <i></i> Personal informations 
+                     Personal informations 
                   </div>
                   <div class="card-body">
                     

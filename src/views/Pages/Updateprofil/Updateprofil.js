@@ -107,11 +107,13 @@ class Updateprofil extends Component {
   
   
     render() {
-      return (
-        <div className="app flex-row align-items-center">
-          <Container>
-            <Row className="justify-content-center">
-              <Col md="9" lg="7" xl="6">
+      return (    
+
+        <div class="container-fluid">
+          <div class="animated fadeIn">
+            <div class="row">
+              <div class="col-lg-12">
+              
                 <Card className="mx-4">
                   <CardBody className="p-4">
                    
@@ -123,7 +125,7 @@ class Updateprofil extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Firstname" autoComplete="Firstname" /><Input type="text" placeholder="Lastname" autoComplete="Lastname" />
+                        <Input type="text" placeholder="Sihem" autoComplete="Firstname" /><Input type="text" placeholder="Nasraoui" autoComplete="Lastname" />
                       </InputGroup>
   
   
@@ -133,7 +135,7 @@ class Updateprofil extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Pseudo" autoComplete="Pseudo" />
+                        <Input type="text" placeholder="SihemNs" autoComplete="Pseudo" />
                       </InputGroup>
   
                       <InputGroup className="mb-3">
@@ -142,7 +144,7 @@ class Updateprofil extends Component {
                             <i className="fa fa-id-card-o"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Cin" autoComplete="Cin" />
+                        <Input type="text" placeholder="15789456" autoComplete="Cin" />
                       </InputGroup>
   
   
@@ -150,7 +152,7 @@ class Updateprofil extends Component {
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>@</InputGroupText>
                         </InputGroupAddon>
-                        <Input type="email" placeholder="Email" autoComplete="email" />
+                        <Input type="email" placeholder="nasraouisihem11@gmail.com" autoComplete="email" />
                       </InputGroup>
   
                       <InputGroup className="mb-3">
@@ -159,7 +161,8 @@ class Updateprofil extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="new-password" />                       <Input type="password" placeholder="Repeat password" autoComplete="new-password" />
+                        <Input type="password" placeholder="************" autoComplete="new-password" />                       
+
   
                       </InputGroup>
   
@@ -169,12 +172,12 @@ class Updateprofil extends Component {
                             <i className="icon-phone"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="number" placeholder="Phone" autoComplete="Phone" /><InputGroupAddon addonType="prepend">
+                        <Input type="number" placeholder="28789654" autoComplete="Phone" /><InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-location-pin"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Address" autoComplete="Address" />
+                        <Input type="text" placeholder="Tunis" autoComplete="Address" />
                       </InputGroup>
   
   
@@ -185,7 +188,7 @@ class Updateprofil extends Component {
                             <i className="icon-calendar"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="date" />
+                        <Input type="25/08/1995" />
                       </InputGroup>
   
   
@@ -278,26 +281,17 @@ class Updateprofil extends Component {
   
   
   
-  
-  
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-camera"></i>
-                          </InputGroupText>
-                        </InputGroupAddon> <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-                      </InputGroup>
-  
-  
                       <Button color="info" block>Update</Button>
                     </Form>
                   </CardBody>
            
                 </Card>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+           
+         </div>
+         </div>
+         </div>
+         </div>
+     
       );
     }
   }

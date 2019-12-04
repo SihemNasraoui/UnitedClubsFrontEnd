@@ -15,7 +15,7 @@ class Register extends Component {
                 <CardBody className="p-4">
                   
                   <Form>
-                    <h2>Add New University</h2>
+                    <h2>Add New Establishment</h2>
                   
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
@@ -37,7 +37,7 @@ class Register extends Component {
                           <i className="icon-location-pin"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" placeholder="Region" autoComplete="Region" />
+                      <Input type="text" placeholder="Adresse" autoComplete="Adresse" />
                     </InputGroup>
 
                     <InputGroup className="mb-3">
