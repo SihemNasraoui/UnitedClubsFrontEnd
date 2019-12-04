@@ -1,12 +1,13 @@
 
 
 import Dashboard from './Dashboard';
-import { Login, Page404, Page500, Register,Forgetpassword,Verification, Profil, Updateprofil } from './Pages';
+import { Login, Page404, Page500, Register,Forgetpassword,Verification, Profil, Updateprofil, AddUniversity } from './Pages';
 
 
 export {
   Badges,
   Page404,
+  AddUniversity,
   Updateprofil,
   Forgetpassword,
   Verification,
@@ -17,6 +18,7 @@ export {
   Modals,
   Alerts,
   Flags,
+  Card,
   Tooltips,
   Tabs,
   Tables,

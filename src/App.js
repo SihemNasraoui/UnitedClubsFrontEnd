@@ -18,8 +18,7 @@ const Register = React.lazy(() => import('./views/Pages/Register'));
 const Page404 = React.lazy(() => import('./views/Pages/Page404'));
 const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 const Verification = React.lazy(() => import('./views/Pages/Verification'));
-const Profil = React.lazy(() => import('./views/Pages/Profil'));
-const Updateprofil = React.lazy(() => import('./views/Pages/Updateprofil'));
+
 
 class App extends Component {
 
@@ -28,8 +27,6 @@ class App extends Component {
       <HashRouter>
           <React.Suspense fallback={loading()}>
             <Switch>
-            <Route exact path="/Updateprofil" name="Updateprofil" render= {props => <Updateprofil {...props}/>} />
-            <Route exact path="/Profil" name="Profil" render= {props => <Profil {...props}/>} />
             <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
             <Route exact path="/Forgetpassword" name="forget page" render={props => <Forgetpassword {...props}/>} />
             <Route exact path="/Verification" name="Verification page" render={props => <Verification {...props}/>} />

@@ -1,0 +1,6 @@
+{
+  "name": "adduniveristy",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AddUniversity.js"
+}

@@ -4,10 +4,6 @@ export default {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
     },
 
     {
@@ -18,6 +14,16 @@ export default {
       name: 'List of clubs',
       url: '/listclubs',
       icon: 'icon-star',
+    },
+
+    {
+      name: 'Profil',
+      url: '/profil',
+      icon: 'icon-star',
+    },
+
+    {
+      divider: true,
     },
   ],
 };
