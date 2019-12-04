@@ -7,7 +7,8 @@ import Verification from './Verification';
 import Profil from'./Profil';
 import Updateprofil from'./Updateprofil';
 import AddUniversity from './AddUniversity';
+import ClubProfil from './ClubProfil';
 
 export {
-  Login, Page404, Page500, Register,Forgetpassword, Verification, Profil, Updateprofil, AddUniversity
+  Login, Page404, Page500, Register,Forgetpassword, Verification, Profil, Updateprofil, AddUniversity, ClubProfil
 };
