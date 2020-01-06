@@ -10,16 +10,13 @@ const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 
 // Pages
 const Login = React.lazy(() => import('./views/Pages/Login'));
-const Club = React.lazy(() => import('./views/Pages/Club/club'));
-
-
 const Forgetpassword = React.lazy(() => import('./views/Pages/Forgetpassword'));
 const Register = React.lazy(() => import('./views/Pages/Register'));
 const Page404 = React.lazy(() => import('./views/Pages/Page404'));
 const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 const Verification = React.lazy(() => import('./views/Pages/Verification'));
-
-
+const Accueil = React.lazy(() => import('./views/Pages/Acceuil'));
+const AddClub = React.lazy(() => import('./views/Pages/Club'));
 class App extends Component {
 
   render() {
@@ -27,15 +24,15 @@ class App extends Component {
       <HashRouter>
           <React.Suspense fallback={loading()}>
             <Switch>
+            <Route  path="/Accueil" name="Accueil" render={props => <Accueil {...props}/>} />
             <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
             <Route exact path="/Forgetpassword" name="forget page" render={props => <Forgetpassword {...props}/>} />
             <Route exact path="/Verification" name="Verification page" render={props => <Verification {...props}/>} />
-            <Route exact path="/Club" name="club page" render={props => <Club {...props}/>} />
-              <Route exact path="/register" name="Register Page" render={props => <Register {...props}/>} />
+              <Route exact path="/createProfil" name="Register Page" render={props => <Register {...props}/>} />
+              <Route exact path="/AddClub" name="Add Club Page" render={props => <AddClub {...props}/>} />
               <Route exact path="/404" name="Page 404" render={props => <Page404 {...props}/>} />
               <Route exact path="/500" name="Page 500" render={props => <Page500 {...props}/>} />
-              <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} />
-           
+              <Route  path="/dashboard" name="Home" render={props => <DefaultLayout {...props}/>} />
             </Switch>
           </React.Suspense>
       </HashRouter>

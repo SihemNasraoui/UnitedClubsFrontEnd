@@ -46,8 +46,8 @@ class DefaultHeader extends Component {
               <DropdownItem><i className="fa fa-envelope-o"></i> Messages<Badge color="success">42</Badge></DropdownItem>
               
               <DropdownItem header tag="div" className="text-center"><strong>Settings</strong></DropdownItem>
-              <DropdownItem><i className="fa fa-user"></i> <NavLink to="/Profil">Profil</NavLink></DropdownItem>
-              <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/UpdateProfil">Update profil</NavLink></DropdownItem>
+              <DropdownItem><i className="fa fa-user"></i> <NavLink to="/dashboard/profil">Profil</NavLink></DropdownItem>
+              <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/dashboard/updateProfil">Update profil</NavLink></DropdownItem>
               
               <DropdownItem divider />
               <DropdownItem><i className="fa fa-shield"></i> Desactivate Account</DropdownItem>

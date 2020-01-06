@@ -1,0 +1,7 @@
+{
+    "name": "Eventlist",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./Eventlist.js"
+  }
+  

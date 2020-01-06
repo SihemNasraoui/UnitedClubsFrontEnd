@@ -31,7 +31,7 @@ class Register extends Component {
 onSubmit(u) {
   u.preventDefault()
 
-  const user = {
+  var user = {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       pseudo: this.state.pseudo,
@@ -48,6 +48,7 @@ onSubmit(u) {
     
   };
 
+ 
   axios.post('http://localhost:4000/etab/create', user)
       .then((res) => {
           console.log(res.data)
@@ -170,7 +171,7 @@ onSubmit(u) {
               <Card className="mx-4">
                 <CardBody className="p-4">
                   <br/><br/><br/><br/><br/>
-                  <Form>
+                  <Form onSubmit={onsubmit()}>
                     <h1>Register</h1>
                     <p className="text-muted">Create your account</p>
                     <InputGroup className="mb-3">

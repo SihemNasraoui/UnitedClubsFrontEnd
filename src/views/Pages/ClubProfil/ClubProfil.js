@@ -1,64 +1,83 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import logo from '../../../assets/img/brand/jeune.png';
+import {AppNavbarBrand } from '@coreui/react';
 
+import {  Card, CardBody } from 'reactstrap';
 class ClubProfil extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { clubs: [] };
+  constructor()
+  {
+super();
+this.state={
+  nomclub:"JEUNE INGENIEUR ",
+  logo:"",
+  description:" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis accumsan quam, ut sollicitudin odio. Fusce ornare nibh suscipit leo tempor placerat. Proin laoreet ornare nisi et blandit. In vel lectus id nisi ornare ultrices. Nulla ornare imperdiet volutpat. Fusce aliquet elit non suscipit congue. Nulla et quam et est molestie semper.Curabitur bibendum tincidunt neque, nec accumsan eros loborti",
+  establishment:"ISAMM",
+  region:"Manouba",
+  members:"150",
+  date:"2011",
 }
-
-componentDidMount() {
-    axios.get('http://localhost:4000/clubs')
-        .then(res => {
-            this.setState({ clubs: res.data });
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-}
-
-  render() {
-
-    return (
-      <div class="container-fluid">
-          <div class="animated fadeIn">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="card">
-                  <div class="card-header">
-                    About
-                  </div>
-                  <div class="card-body">
-                    
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Club Name : { this.state.clubs.map(club => {club.clubname})} </li>
-                      </ol>
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Description : { this.state.clubs.map(club => {club.description})} </li>
-                      </ol>
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Number of member : { this.state.clubs.map(club => {club.numbermember})}</li>
-                      </ol>
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page"> Region : { this.state.clubs.map(club => {club.region})}</li>
-                      </ol>
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page"> Creation date : { this.state.clubs.map(club => {club.date})} </li>
-                      </ol>
-                      <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">Establishment : { this.state.clubs.map(club => {club.etab})}</li>
-                      </ol>
-                               
-                   
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    );
   }
-}
+  render() {
+    return (
+          <div className="container-fluid">
+            <div className="animated fadeIn">
+              <div className="row">
+                <div className="col-lg-12">
+                  <Card className="mx-4">
+                    <CardBody className="p-4">
+                        <div className="media">
+                        <AppNavbarBrand className="mr-rounded mx-auto d-bloc3"
+      full={{ src: logo, width: 245 , height: 230, alt: 'united Club' }}
+    />
+  <div className="media-body">
+    <h3 className="mt-0 mb-1">{this.state.nomclub}</h3>
+  </div>
+</div>
+    
+<ol className="breadcrumb">
+                        <li className="breadcrumb-item active" aria-current="page">description </li>
+                      </ol>
+                  < p   className="lead" id="description">{this.state.description} </p>
+                <div className="row">
+                <div className="col-sm-2">
+    <div className="callout callout-warning b-t-1 b-r-1 b-b-1">
+      <small className="text-muted">
+establishment</small><br />
+      <strong className="h4">{this.state.establishment}</strong>
+    </div>
+  </div>
+  <div className="col-sm-2">
+    <div className="callout callout-success b-t-1 b-r-1 b-b-1">
+      <small className="text-muted">Region</small><br />
+      <strong className="h4">{this.state.region}</strong>
+    </div>
+  </div>
+  <div className="col-sm-2">
+    <div className="callout callout-info b-t-1 b-r-1 b-b-1">
+    <small className="text-muted"> Members<br /> /</small>
+      <strong className="h4">{this.state.members} members</strong>
+    </div>
+  </div>
+  <div className="col-sm-2">
+    <div className="callout callout-danger b-t-1 b-r-1 b-b-1">
+      <small className="text-muted">Creation Date</small><br />
+      <strong className="h4"> {this.state.date}</strong>
+    </div>
+  </div>
+ 
+  </div>
+                    </CardBody>
+             
+                  </Card>
+             
+           </div>
+           </div>
+           </div>
+           </div>
+       
+        );
+      }
+    }
 
 export default ClubProfil;

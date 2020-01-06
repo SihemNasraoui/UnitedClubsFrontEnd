@@ -1,7 +1,7 @@
 export default {
   items: [
     {
-      name: 'Home',
+      name: 'dashboard',
       url: '/dashboard',
       icon: 'fa fa-home',
     },
@@ -11,7 +11,7 @@ export default {
     },
     {
       name: 'List of Event',
-      url: '/addevent',
+      url: '/dashboard/getAllEvents',
       icon: 'fa fa-calendar-plus-o',
     },
     {
@@ -20,7 +20,7 @@ export default {
 
     {
       name: 'Add New Event',
-      url: '/listevents',
+      url: '/dashboard/Addevent',
       icon: 'fa fa-calendar',
     },
 
@@ -30,7 +30,7 @@ export default {
 
     {
       name: 'Contact sponsor',
-      url: '/sponsor',
+      url: '/dashboard/sponsor',
       icon: 'fa fa-users',
     },
   ],
