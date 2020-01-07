@@ -1,7 +1,7 @@
 
 
 import Dashboard from './Dashboard';
-import { Login, Page404, Page500, Register,Forgetpassword,Verification, Profil, Updateprofil, AddUniversity, AddEstablishment, ClubProfil, Acceuil, Club, Eventlist } from './Pages';
+import { Login, Page404, Page500,RegisterSponsor, RegisterStudent ,RegisterAdministration,Forgetpassword,Verification, Profil, Updateprofil, AddUniversity, AddEstablishment, ClubProfil, Acceuil, Club, Eventlist } from './Pages';
 
 
 export {
@@ -17,7 +17,9 @@ export {
   Forgetpassword,
   Verification,
   Page500,
-  Register,
+  RegisterStudent,
+  RegisterSponsor,
+  RegisterAdministration,
   Login,
   Profil,
   Modals,

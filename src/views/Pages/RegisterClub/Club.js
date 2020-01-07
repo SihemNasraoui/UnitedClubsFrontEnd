@@ -1,12 +1,60 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, CardFooter, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import Universite from './Univ';
+import axios from 'axios';
 
 import logo from '../../../assets/img/brand/logo.png'
 import { AppNavbarBrand} from '@coreui/react';
 
 class Club extends Component {
+  constructor(props) {
+    super(props)
 
+    
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      Nom_Club: '',
+      Téléphone_Club: '',
+      Description: '',
+      Nombre_Membres: '',
+      Date_Création: '',
+      Email_Club: '',
+      Password_Club: '',
+      Nom_université: '',
+      Nom_Ecole: '',
+      logo: ''
+     
+    }
+}
+
+onSubmit(u) {
+  u.preventDefault()
+
+  var club = {
+    clubname: this.state.clubname,
+    phone: this.state.phone,
+    Nombre_Membres: this.state.Nombre_Membres,
+    description: this.state.description,
+    date: this.state.date,
+    email: this.state.email,
+    password: this.state.password,
+    Nom_université: this.state.Nom_université,
+    Nom_Ecole: this.state.Nom_Ecole,
+    logo: this.state.logo
+    
+  };
+
+ 
+  axios.post('http://localhost:4000/api/Club', club)
+      .then((res) => {
+          console.log(res.data)
+      }).catch((error) => {
+          console.log(error)
+      });
+
+  this.setState({ clubname: '',  description: '', email: '', password: '', phone: '', adresse: '', date: '', logo: ''})
+}
 
 
   render() {
@@ -26,14 +74,14 @@ class Club extends Component {
  
                   <Form>
                     <h2>REGISTER CLUB</h2>
-                    <p className="text-muted">Create your account</p>
+                    <p className="text-muted">Create your club account</p>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="icon-user"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" required placeholder="Clubname" autoComplete="Clubname" />
+                      <Input type="text" value={this.state.clubname} required placeholder="Clubname" autoComplete="Clubname" />
                     </InputGroup>
 
 
@@ -43,14 +91,14 @@ class Club extends Component {
                           <i className="fa fa-id-card-o"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="textarea" required placeholder=" Description of the club" autoComplete=" Description of the club" />
+                      <Input type="textarea" value={this.state.description} required placeholder=" Description of the club" autoComplete=" Description of the club" />
                     </InputGroup>
 
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>@</InputGroupText>
                       </InputGroupAddon>
-                      <Input type="email"required placeholder="Email" autoComplete="email" />
+                      <Input type="email" value={this.state.email} required placeholder="Email" autoComplete="email" />
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -59,7 +107,7 @@ class Club extends Component {
                           <i className="icon-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password"required placeholder="Password" autoComplete="new-password" />                       <Input type="password" required placeholder="Repeat password" autoComplete="new-password" />
+                      <Input type="password" value={this.state.password}  required placeholder="Password" autoComplete="new-password" />                       <Input type="password" required placeholder="Repeat password" autoComplete="new-password" />
 
                     </InputGroup>
 
@@ -69,12 +117,12 @@ class Club extends Component {
                           <i className="icon-phone"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="phone"required placeholder="Phone" autoComplete="Phone" /><InputGroupAddon addonType="prepend">
+                      <Input type="phone" value={this.state.phone} required placeholder="Phone" autoComplete="Phone" /><InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="icon-location-pin"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" required placeholder="Address" autoComplete="Address" />
+                      <Input type="text" value={this.state.adresse} required placeholder="Address" autoComplete="Address" />
                     </InputGroup>
 
                     <Universite />
@@ -82,10 +130,10 @@ class Club extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-calendar"> &nbsp;DATE OF CREATION</i>
+                          <i className="icon-calendar"> &nbsp;Date of creation</i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="date" />
+                      <Input type="date" value={this.state.date}/>
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -94,23 +142,14 @@ class Club extends Component {
                         <InputGroupText>
                           <i className="icon-camera"> &nbsp; &nbsp;LOGO</i>
                         </InputGroupText>
-                      </InputGroupAddon> <input requiered type="file" id="logo" name="logo" accept="image/png, image/jpeg" />
+                      </InputGroupAddon> <input value={this.state.logo} requiered type="file" id="logo" name="logo" accept="image/png, image/jpeg" />
                     </InputGroup>
 
 
-                    <Button color="info" block>Create Account</Button>
+                    <Button type="submit" color="info" block>Create Club</Button>
                   </Form>
                 </CardBody>
-                <CardFooter className="p-4">
-                  <Row>
-                    <Col xs="12" sm="6">
-                      <Button className="btn-facebook mb-1" block><span>Facebook</span></Button>
-                    </Col>
-                    <Col xs="12" sm="6">
-                      <Button className="btn-danger mb-1" block><span>Gmail</span></Button>
-                    </Col>
-                  </Row>
-                </CardFooter>
+              
               </Card>
             </Col>
           </Row>

@@ -13,11 +13,11 @@ const Eventlist = React.lazy(() => import('./views/Pages/Eventlist'));
 const routes = [
 
   { path: '/dashboard/profil', name: 'Profil', component: Profil },
-  { path: '/dashboard/updateprofil' , name: 'Updateprofil', component: Updateprofil},
-  { path: '/dashboard/addUniversity' , name: 'AddUniversity', component: AddUniversity},
-  { path: '/dashboard/addestablishment' , name: 'AddEstablishment', component: AddEstablishment},
-  { path: '/dashboard/getAllEvents' , name: 'Eventlist', component: Eventlist},
-  { path: '/dashboard/clubprofil' , name: 'ClubProfil', component: ClubProfil},
+  { path: '/dashboard/updateprofil' , name: 'Update profil', component: Updateprofil},
+  { path: '/dashboard/addUniversity' , name: 'Add University', component: AddUniversity},
+  { path: '/dashboard/addestablishment' , name: 'Add Establishment', component: AddEstablishment},
+  { path: '/dashboard/getAllEvents' , name: 'Event list', component: Eventlist},
+  { path: '/dashboard/clubprofil' , name: 'Club Profil', component: ClubProfil},
  
 
 

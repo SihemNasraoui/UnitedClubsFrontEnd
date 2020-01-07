@@ -106,7 +106,7 @@ class DemoNavbar extends React.Component {
               <div className="modal-body">
               <Row>
     <Col>
-  <Link to="/addClub">
+  <Link to="/AddClub">
                 <img
                   alt="..."
                   height="150"
@@ -116,13 +116,32 @@ class DemoNavbar extends React.Component {
   
     </Col>
     <Col>
-    <Link to="/createProfil">
+    <Link to="/createProfilStudent">
                 <img
                   alt="..."
                   height="150"
                   src={require("../../../assets/img/brand/im.png")}
-                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; USERS</h2>
+                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; Student</h2>
   </Link>    </Col>
+  
+  <Col>
+    <Link to="/createProfilAdministration">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >   Administration</h2>
+  </Link>    </Col>
+  <Col>
+  <Link to="/createProfilSponsor">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; Sponsor</h2>
+  </Link>    </Col>
+  
+  
   </Row>
               </div>
               <div className="modal-footer">
@@ -138,7 +157,8 @@ class DemoNavbar extends React.Component {
                 </Button>
               </div>
             </Modal>
-                        <Button
+            <Link to="/login">
+  <Button
                           className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
                           color="default"
                         >
@@ -146,7 +166,7 @@ class DemoNavbar extends React.Component {
                           <span className="btn-inner--text">
                             Sign in
                           </span>
-                        </Button>
+                        </Button></Link>
                       </div>
                   </NavItem>
                 </Nav>

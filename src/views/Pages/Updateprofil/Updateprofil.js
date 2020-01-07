@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import Universite from '../Register/Univ';
+import { Button, Card, CardBody, Form, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
+import Universite from '../RegisterStudent/Univ';
 
 class Updateprofil extends Component {
 

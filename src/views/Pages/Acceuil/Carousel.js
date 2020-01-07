@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
+import {Modal} from "reactstrap";
 // reactstrap components
 import { Button, Container, Row, Col, UncontrolledCarousel } from "reactstrap";
 
@@ -26,6 +28,14 @@ const items = [
 ];
 
 class Carousel extends React.Component {
+  state = {
+    defaultModal: false
+  };
+  toggleModal = state => {
+    this.setState({
+      [state]: !this.state[state]
+    });
+  };
   render() {
     return (
       <>
@@ -51,17 +61,99 @@ University Event Management Platform                </h1>
                 <Button
                           className="btn-icon mb-3 mb-sm-0"
                           color="info"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/alerts?ref=adsr-landing-page"
+                     
+                          onClick={() => this.toggleModal("defaultModal")}
                         >
                           <span className="btn-inner--icon mr-1">
                             <i className="fa fa-user-plus" />
                           </span>
                           <span className="btn-inner--text">Sign up</span>
-                        </Button>
+                        </Button>/
+
+                        <Modal
+              className="modal-dialog-centered "
+           
+              isOpen={this.state.defaultModal}
+              toggle={() => this.toggleModal("defaultModal")}
+            >
+              <div className="modal-header">
+                <h1 className="modal-title text-info" id="modal-title-notification">
+                  Your are ...
+                </h1>
+                <button
+                  aria-label="Close"
+                  className="close"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={() => this.toggleModal("defaultModal")}
+                >
+                  <span aria-hidden={true}>×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+              <Row>
+    <Col>
+  <Link to="club">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/Bus.png")}
+                /><h2 className="modal-title text-info">   &nbsp;&nbsp;&nbsp;CLUB</h2>
+  </Link>
+  
+    </Col>
+    <Col>
+    <Link to="/register">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; Student</h2>
+  </Link>    </Col>
+  
+  <Col>
+    <Link to="/createProfil">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >   Administration</h2>
+  </Link>    </Col>
+  <Col>
+  <Link to="/createProfil">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; Sponsor</h2>
+  </Link>    </Col>
+  
+  
+  </Row>
+              </div>
+              <div className="modal-footer">
+              
+                <Button
+                  className="text-default ml-auto"
+                  color="link"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={() => this.toggleModal("defaultModal")}
+                >
+                  Close
+                </Button>
+              </div>
+            </Modal>
+ 
+
+
+
+
+                        
                         <Button
                           className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
                           color="default"
-                          href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page"
+                          href=""
                         >
                           <span className="btn-inner--icon mr-1">
                             <i className="fa fa-envelope" />

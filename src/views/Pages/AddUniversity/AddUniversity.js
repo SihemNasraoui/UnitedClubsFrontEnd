@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, Form, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import axios from 'axios';
 
 
@@ -12,11 +12,12 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-        name: '',
-        phone:'',
-        region: '',
-        email: '',
-        logo: ''
+        Nom_Université: '',
+        Région: '',
+        Téléphone_Université: '',
+        Adresse_Université: '',
+        Email_Université: '',
+        logo_Université: ''
     }
 }
 
@@ -24,21 +25,22 @@ onSubmit(e) {
   e.preventDefault()
 
   const univObject = {
-      name: this.state.name,
-      phone: this.state.phone,
-      region: this.state.region,
-      email: this.state.email,
-      logo: this.state.logo,
+    Nom_Université: this.state.Nom_Université,
+    Région: this.state.Région,
+    Téléphone_Université: this.state.Téléphone_Université,
+      Adresse_Université: this.state.Adresse_Université,
+      Email_Université: this.state.Email_Université,
+      logo_Université: this.state.logo,
   };
 
-  axios.post('http://localhost:4000/univ/create', univObject)
+  axios.post('http://localhost:4000/api/Universite', univObject)
       .then((res) => {
           console.log(res.data)
       }).catch((error) => {
           console.log(error)
       });
 
-  this.setState({ name: '', phone: '', region: '', email: '', logo: '' })
+  this.setState({ Nom_Université: '', Région: '', Téléphone_Université: '',Adresse_Université: '',  Email_Université: '', logo_Université: '' })
 }
 
   render() {
@@ -59,7 +61,7 @@ onSubmit(e) {
                           <i className="icon-user"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" value={this.state.name} placeholder="Name" autoComplete="Name" />              
+                      <Input type="text" value={this.state.Nom_Université} placeholder="Name" autoComplete="Name" />              
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -68,12 +70,21 @@ onSubmit(e) {
                           <i className="icon-phone"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="number" value={this.state.phone} placeholder="Phone Number" autoComplete="Phone" /><InputGroupAddon addonType="prepend">
+                      <Input type="number" value={this.state.Téléphone_Université} placeholder="Phone Number" autoComplete="Phone" /><InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="icon-location-pin"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" value={this.state.region} placeholder="Region" autoComplete="Region" />
+                      <Input type="text" value={this.state.Région} placeholder="Region" autoComplete="Region" />
+                    </InputGroup>
+
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                        <i className="icon-location-pin"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input type="text" value={this.state.Adresse_Université} placeholder="Adresse" autoComplete="Adresse" />              
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -82,7 +93,7 @@ onSubmit(e) {
                           @
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" value={this.state.email} placeholder="Email" autoComplete="Email" />              
+                      <Input type="text" value={this.state.Email_Université} placeholder="Email" autoComplete="Email" />              
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -90,7 +101,7 @@ onSubmit(e) {
                         <InputGroupText>
                           <i className="icon-camera"></i>
                         </InputGroupText>
-                      </InputGroupAddon> <input type="file" value={this.state.logo} id="avatar" name="avatar" accept="image/png, image/jpeg" />
+                      </InputGroupAddon> <input type="file" value={this.state.logo_Université} id="avatar" name="avatar" accept="image/png, image/jpeg" />
                     </InputGroup> 
 
                     <Button color="info" block>Validate</Button>
