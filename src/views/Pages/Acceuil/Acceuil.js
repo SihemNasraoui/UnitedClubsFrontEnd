@@ -36,13 +36,13 @@ class CardsFooter extends React.Component {
               <Col className="text-lg-center btn-wrapper" lg="6">
                 <Button
                   className="btn-neutral btn-icon-only btn-round"
-                  color="twitter"
-                  href="https://twitter.com/creativetim"
+                  color="instagram"
+                  href="https://instagram.com/united.clubs?igshid=18srlzefr2e0b "
                   id="tooltip475038074"
                   size="lg"
                   target="_blank"
                 >
-                  <i className="fa fa-twitter" />
+                  <i className="fa fa-instagram" />
                 </Button>
                 <UncontrolledTooltip delay={0} target="tooltip475038074">
                   Follow us
@@ -50,7 +50,7 @@ class CardsFooter extends React.Component {
                 <Button
                   className="btn-neutral btn-icon-only btn-round ml-1"
                   color="facebook"
-                  href="https://www.facebook.com/creativetim"
+                  href="https://m.facebook.com/United-Clubs-102829497873350/"
                   id="tooltip837440414"
                   size="lg"
                   target="_blank"

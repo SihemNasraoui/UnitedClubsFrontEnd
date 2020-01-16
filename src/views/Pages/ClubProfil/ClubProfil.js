@@ -5,19 +5,7 @@ import {AppNavbarBrand } from '@coreui/react';
 import {  Card, CardBody } from 'reactstrap';
 class ClubProfil extends Component {
 
-  constructor()
-  {
-super();
-this.state={
-  nomclub:"JEUNE INGENIEUR ",
-  logo:"",
-  description:" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis accumsan quam, ut sollicitudin odio. Fusce ornare nibh suscipit leo tempor placerat. Proin laoreet ornare nisi et blandit. In vel lectus id nisi ornare ultrices. Nulla ornare imperdiet volutpat. Fusce aliquet elit non suscipit congue. Nulla et quam et est molestie semper.Curabitur bibendum tincidunt neque, nec accumsan eros loborti",
-  establishment:"ISAMM",
-  region:"Manouba",
-  members:"150",
-  date:"2011",
-}
-  }
+  
   render() {
     return (
           <div className="container-fluid">

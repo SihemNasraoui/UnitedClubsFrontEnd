@@ -9,7 +9,7 @@ class Profil extends Component {
 }
 
 componentDidMount() {
-    axios.get('http://localhost:4000/users')
+    axios.get('https://localhost:5001/Etudiant')
         .then(res => {
             this.setState({ persons: res.data });
         })
@@ -33,7 +33,9 @@ componentDidMount() {
                   <div class="card-header">
                      Personal informations 
                   </div>
-        
+                  <ul>
+                  <p>Nom Etudiant :</p>  { this.state.persons.map(person => <li>{person.Nom_Etudiant}</li>)}
+                </ul>
                 </div>
               </div>
             </div>
