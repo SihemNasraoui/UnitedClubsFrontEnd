@@ -2,70 +2,74 @@ import React, { Component } from 'react';
 import logo from '../../../assets/img/brand/jeune.png';
 import {AppNavbarBrand } from '@coreui/react';
 
-import {  Card, CardBody } from 'reactstrap';
+import {  Card, CardBody, Breadcrumb, BreadcrumbItem, Col, Row, CardHeader} from 'reactstrap';
 class ClubProfil extends Component {
-
   
-  render() {
-    return (
-          <div className="container-fluid">
-            <div className="animated fadeIn">
-              <div className="row">
-                <div className="col-lg-12">
-                  <Card className="mx-4">
-                    <CardBody className="p-4">
-                        <div className="media">
-                        <AppNavbarBrand className="mr-rounded mx-auto d-bloc3"
-      full={{ src: logo, width: 245 , height: 230, alt: 'united Club' }}
-    />
-  <div className="media-body">
-    <h3 className="mt-0 mb-1">{this.state.nomclub}</h3>
-  </div>
-</div>
-    
-<ol className="breadcrumb">
-                        <li className="breadcrumb-item active" aria-current="page">description </li>
-                      </ol>
-                  < p   className="lead" id="description">{this.state.description} </p>
-                <div className="row">
-                <div className="col-sm-2">
-    <div className="callout callout-warning b-t-1 b-r-1 b-b-1">
-      <small className="text-muted">
-establishment</small><br />
-      <strong className="h4">{this.state.establishment}</strong>
-    </div>
-  </div>
-  <div className="col-sm-2">
-    <div className="callout callout-success b-t-1 b-r-1 b-b-1">
-      <small className="text-muted">Region</small><br />
-      <strong className="h4">{this.state.region}</strong>
-    </div>
-  </div>
-  <div className="col-sm-2">
-    <div className="callout callout-info b-t-1 b-r-1 b-b-1">
-    <small className="text-muted"> Members<br /> /</small>
-      <strong className="h4">{this.state.members} members</strong>
-    </div>
-  </div>
-  <div className="col-sm-2">
-    <div className="callout callout-danger b-t-1 b-r-1 b-b-1">
-      <small className="text-muted">Creation Date</small><br />
-      <strong className="h4"> {this.state.date}</strong>
-    </div>
-  </div>
+  constructor(props) {
+    super(props)
+    this.state = JSON.parse(localStorage.getItem("user"))
+    this.token= JSON.parse(localStorage.getItem("token"))
+    /* localStorage.clear()*/
+    console.log(this.state)
+}
  
-  </div>
-                    </CardBody>
+  
+render() {
+  return (
+    <div className="animated fadeIn">
+      <Row>
+        <Col xs="12">
+          <Card>
+            <CardHeader>
              
-                  </Card>
-             
-           </div>
-           </div>
-           </div>
-           </div>
-       
-        );
-      }
-    }
+              <div class="card-header">
+                     Personal informations 
+                  </div>
+            </CardHeader>
+            <CardBody>
+              <Breadcrumb>
+                <BreadcrumbItem active>Identifiant Club : { this.state.id_Club}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Nom Club : { this.state.nom_Club}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Description : { this.state.description}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Date de création : { this.state.date_Création}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Email Club : { this.state.Email}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Nom Université : { this.state.nom_université}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Nom Ecole : { this.state.nom_Ecole}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Nombre de membre : { this.state.nombre_Membres}</BreadcrumbItem>
+              </Breadcrumb>     
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Numéro de téléphone : { this.state.téléphone_Club}</BreadcrumbItem>
+              </Breadcrumb>
+
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  );
+}
+}
 
 export default ClubProfil;

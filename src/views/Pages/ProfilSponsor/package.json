@@ -1,0 +1,7 @@
+{
+    "name": "profilsponsor",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ProfilSponsor.js"
+  }
+  

@@ -18,6 +18,9 @@ const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 const Verification = React.lazy(() => import('./views/Pages/Verification'));
 const Accueil = React.lazy(() => import('./views/Pages/Acceuil'));
 const AddClub = React.lazy(() => import('./views/Pages/RegisterClub'));
+const Login1 = React.lazy(() => import('./views/Pages/Login1'));
+const Login2 = React.lazy(() => import('./views/Pages/Login2'));
+const Login3 = React.lazy(() => import('./views/Pages/Login3'));
 class App extends Component {
 
   render() {
@@ -26,7 +29,10 @@ class App extends Component {
           <React.Suspense fallback={loading()}>
             <Switch>
             <Route  path="/Accueil" name="Accueil" render={props => <Accueil {...props}/>} />
-            <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
+            <Route exact path="/login" name="Club Login Page" render={props => <Login {...props}/>} />
+            <Route exact path="/login1" name="Sponsor Login Page" render={props => <Login1 {...props}/>} />
+            <Route exact path="/login2" name="Student Login Page" render={props => <Login2 {...props}/>} />
+            <Route exact path="/login3" name="Administrateur Login Page" render={props => <Login3 {...props}/>} />
             <Route exact path="/Forgetpassword" name="forget page" render={props => <Forgetpassword {...props}/>} />
             <Route exact path="/Verification" name="Verification page" render={props => <Verification {...props}/>} />
               <Route exact path="/createProfilStudent" name="Register Page Student" render={props => <RegisterStudent {...props}/>} />
@@ -35,6 +41,7 @@ class App extends Component {
               <Route exact path="/404" name="Page 404" render={props => <Page404 {...props}/>} />
               <Route exact path="/500" name="Page 500" render={props => <Page500 {...props}/>} />
               <Route  path="/dashboard" name="Home" render={props => <DefaultLayout {...props}/>} />
+           
             </Switch>
           </React.Suspense>
       </HashRouter>

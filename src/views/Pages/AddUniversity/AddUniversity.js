@@ -7,8 +7,8 @@ class Register extends Component {
 
   constructor(props) {
     super(props)
-
     this.handleChangeNomUniversité = this.handleChangeNomUniversité.bind(this);
+    this.handleChangeIdUniv = this.handleChangeIdUniv.bind(this);
     this.handleChangeRegion = this.handleChangeRegion.bind(this);
     this.handleChangePhone = this.handleChangePhone.bind(this);
     this.handleChangeAdresse = this.handleChangeAdresse.bind(this);
@@ -17,12 +17,13 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
+        Id_Université: '',
         Nom_Université: '',
         Région: '',
         Téléphone_Université: '',
         Adresse_Université: '',
         Email_Université: '',
-        logo_Université: ''
+        Image: ''
     }
 }
 
@@ -36,21 +37,23 @@ handleChangeAdresse = event => {   this.setState({ Adresse_Université: event.ta
 
 handleChangeEmail = event => {   this.setState({ Email_Université: event.target.value }); }
 
-handleChangeimg = event => {   this.setState({ logo_Université: event.target.value }); }
+handleChangeimg = event => {   this.setState({ Image: event.target.value }); }
 
+handleChangeIdUniv =  event => {   this.setState({ Id_Université: event.target.value }); }
 
 onSubmit = event => {
   event.preventDefault()
 
   const univObject = {
+    Id_Université: this.state.Id_Université,
     Nom_Université: this.state.Nom_Université,
     Région: this.state.Région,
     Téléphone_Université: this.state.Téléphone_Université,
     Adresse_Université: this.state.Adresse_Université,
     Email_Université: this.state.Email_Université,
-    logo_Université: this.state.logo,
+    Image: null,
   };
- 
+ console.log(univObject);
 
   axios.post('https://localhost:5001/api/Universite', univObject)
       .then((res) => {
@@ -60,7 +63,7 @@ onSubmit = event => {
           console.log(error)
       });
 
-  this.setState({ Nom_Université: '', Région: '', Téléphone_Université: '',Adresse_Université: '',  Email_Université: '', logo_Université: '' })
+  this.setState({ Nom_Université: '', Région: '', Téléphone_Université: '',Adresse_Université: '',  Email_Université: '', Image: '' , Id_Université: ''})
 }
 
   render() {
@@ -74,6 +77,15 @@ onSubmit = event => {
                   
                   <form onSubmit={this.onSubmit}>
                     <h2>Add New University</h2>
+
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                        <i className="icon-location-pin"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input type="text" name="this.state.Id_Université" placeholder="Identifiant" autoComplete="Identifiant" onChange={this.handleChangeIdUniv}/>              
+                    </InputGroup>
                   
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
@@ -121,7 +133,7 @@ onSubmit = event => {
                         <InputGroupText>
                           <i className="icon-camera"></i>
                         </InputGroupText>
-                      </InputGroupAddon> <input type="file" name="this.state.logo_Université" id="avatar" name="avatar" accept="image/png, image/jpeg" onChange={this.handleChangeimg}/>
+                      </InputGroupAddon> <input type="file" name="this.state.Image" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg" onChange={this.handleChangeimg}/>
                     </InputGroup> 
 
                     <Button color="info" block>Validate</Button>

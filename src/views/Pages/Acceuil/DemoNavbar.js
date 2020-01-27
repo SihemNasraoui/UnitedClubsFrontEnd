@@ -157,16 +157,91 @@ class DemoNavbar extends React.Component {
                 </Button>
               </div>
             </Modal>
-            <Link to="/login">
-  <Button
+           
+                        <Button
                           className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
                           color="default"
-                        >
-                          
+                          type="button"
+                          onClick={() => this.toggleModal("defaultModal")}
+                        >    
                           <span className="btn-inner--text">
                             Sign in
                           </span>
-                        </Button></Link>
+                        </Button>
+                        <Modal
+              className="modal-dialog-centered "
+           
+              isOpen={this.state.defaultModal}
+              toggle={() => this.toggleModal("defaultModal")}
+            >
+              <div className="modal-header">
+                <h1 className="modal-title text-info" id="modal-title-notification">
+                  Your are ...
+                </h1>
+                <button
+                  aria-label="Close"
+                  className="close"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={() => this.toggleModal("defaultModal")}
+                >
+                  <span aria-hidden={true}>×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+              <Row>
+    <Col>
+  <Link to="/Login">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/Bus.png")}
+                /><h2 className="modal-title text-info">   &nbsp;&nbsp;&nbsp;CLUB</h2>
+  </Link>
+  
+    </Col>
+    <Col>
+    <Link to="/Login2">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; Student</h2>
+  </Link>    </Col>
+  
+  <Col>
+    <Link to="/Login3">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >   Administration</h2>
+  </Link>    </Col>
+  <Col>
+  <Link to="/login1">
+                <img
+                  alt="..."
+                  height="150"
+                  src={require("../../../assets/img/brand/im.png")}
+                /><h2 className="modal-title text-info" >  &nbsp;&nbsp; Sponsor</h2>
+  </Link>    </Col>
+  
+  
+  </Row>
+              </div>
+              <div className="modal-footer">
+              
+                <Button
+                  className="text-default ml-auto"
+                  color="link"
+                  data-dismiss="modal"
+                  type="button"
+                  onClick={() => this.toggleModal("defaultModal")}
+                >
+                  Close
+                </Button>
+              </div>
+            </Modal>
                       </div>
                   </NavItem>
                 </Nav>

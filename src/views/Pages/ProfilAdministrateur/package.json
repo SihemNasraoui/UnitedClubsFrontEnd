@@ -1,0 +1,7 @@
+{
+    "name": "ProfilAdministrateur",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ProfilAdministrateur.js"
+  }
+  

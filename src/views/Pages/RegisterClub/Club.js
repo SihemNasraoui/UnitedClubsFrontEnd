@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import Universite from './Univ';
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom'
 import logo from '../../../assets/img/brand/logo.png'
 import { AppNavbarBrand} from '@coreui/react';
 
@@ -31,12 +31,13 @@ class Club extends Component {
       Description: '',
       Nombre_Membres: '',
       Date_Création: '',
-      Email_Club: '',
-      Password_Club: '',
+      Email : '',
+      Password: '',
       Nom_université: '',
       Nom_Ecole: '',
-      logo: ''
-     
+      logo: '',
+      redirect: false,
+      Role: ''
     }
 }
 
@@ -749,9 +750,9 @@ handleChangeNombre_Membres = event => {   this.setState({ Nombre_Membres: event.
 
 handleChangedate = event => {   this.setState({ Date_Création: event.target.value }); }
 
-handleChangeemail = event => {   this.setState({ Email_Club: event.target.value }); }
+handleChangeemail = event => {   this.setState({ Email: event.target.value }); }
 
-handleChangepswd = event => {   this.setState({ Password_Club: event.target.value }); }
+handleChangepswd = event => {   this.setState({ Password: event.target.value }); }
 
 handleChangeunivname = event => {   this.setState({ Nom_université: event.target.value }); }
 
@@ -759,21 +760,32 @@ handleChangenomecole = event => {   this.setState({ Nom_Ecole: event.target.valu
 
 handleChangelogo = event => {   this.setState({ logo: event.target.value }); }
 
+setRedirect = () => {
+  this.setState({
+    redirect: true
+  })
+}
+renderRedirect = () => {
+  if (this.state.redirect) {
+    return <Redirect to='/login'/>
+  }
+}
 
 onSubmit = event => {
   event.preventDefault()
 
   var club = {
-    Nom_Club: this.state.Password_Club,
+    Nom_Club: this.state.Nom_Club,
     Téléphone_Club: this.state.Téléphone_Club,
     Nombre_Membres: this.state.Nombre_Membres,
     Description: this.state.Description,
     Date_Création: this.state.Date_Création,
-    Email_Club: this.state.Email_Club,
-    Password_Club: this.state.Password_Club,
+    Email: this.state.Email,
+    Password: this.state.Password,
     Nom_université: this.state.Nom_université,
     Nom_Ecole: this.state.Nom_Ecole,
-    logo: this.state.logo
+    logo: this.state.logo,
+    Role: 'Club'
     
   };
 
@@ -783,13 +795,13 @@ onSubmit = event => {
       .then((res) => {
 console.log(res)
 console.log(res.data)
-
+this.props.history.push('/login');
       }).catch((error) => {
 
           console.log(error)
       });
 
-  this.setState({ clubname: '',  phone: '', Nombre_Membres: '', description: '', date: '', email: '', password: '', Nom_université: '', Nom_Ecole: '', logo: ''})
+  this.setState({ Nom_Club: '',  Téléphone_Club: '', Nombre_Membres: '', Description: '', Date_Création: '', Email: '', Password: '', Nom_université: '', Nom_Ecole: '', logo: ''})
 }
 
 
@@ -836,7 +848,7 @@ console.log(res.data)
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>@</InputGroupText>
                       </InputGroupAddon>
-                      <Input type="email" name="this.state.Email_Club" required placeholder="Email" autoComplete="email" onChange={this.handleChangeemail}/>
+                      <Input type="email" name="this.state.Email" required placeholder="Email" autoComplete="email" onChange={this.handleChangeemail}/>
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -845,7 +857,7 @@ console.log(res.data)
                           <i className="icon-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password" name="this.state.Password_Club"  required placeholder="Password" autoComplete="new-password" onChange={this.handleChangepswd} />              
+                      <Input type="password" name="this.state.Password"  required placeholder="Password" autoComplete="new-password" onChange={this.handleChangepswd} />              
                                <Input type="password" required placeholder="Repeat password" autoComplete="new-password" />
 
                     </InputGroup>
@@ -1267,7 +1279,7 @@ console.log(res.data)
                     </InputGroup>
 
 
-                    <Button type="submit" color="info" block>Create Club</Button>
+                    <Button type="submit" color="info" block >Create Club</Button>
                   </form>
                 </CardBody>
               

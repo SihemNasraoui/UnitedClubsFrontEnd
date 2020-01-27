@@ -20,10 +20,10 @@ class RegisterSponsor extends Component {
 
     this.state = {
       Nom_Sponsor: '',
-      Email_Sponsor: '',
+      Email: '',
       Téléphone_Sponsor: '',
       Adresse_Sponsor: '',
-      Mot_de_passe_Sponsor: '',
+      Password: '',
       Matricule_Sponsor: '',
       Image: ''
      
@@ -32,13 +32,13 @@ class RegisterSponsor extends Component {
 
 handleChangeNom_Sponsor = event => {   this.setState({ Nom_Sponsor: event.target.value }); }
 
-handleChangeEmail_Sponsor = event => {   this.setState({ Email_Sponsor: event.target.value }); }
+handleChangeEmail_Sponsor = event => {   this.setState({ Email: event.target.value }); }
 
 handleChangeTéléphone_Sponsor = event => {   this.setState({ Téléphone_Sponsor: event.target.value }); }
 
 handleChangeAdresse_Sponsor = event => {   this.setState({ Adresse_Sponsor: event.target.value }); }
 
-handleChangeMot_de_passe_Sponsor = event => {   this.setState({ Mot_de_passe_Sponsor: event.target.value }); }
+handleChangeMot_de_passe_Sponsor = event => {   this.setState({ Password: event.target.value }); }
 
 handleChangeMatricule_Sponsor = event => {   this.setState({ Matricule_Sponsor: event.target.value }); }
 
@@ -50,13 +50,13 @@ onSubmit = event => {
 
   var sponsor = {
     Nom_Sponsor: this.state.Nom_Sponsor,
-    Email_Sponsor: this.state.Email_Sponsor,
+    Email: this.state.Email,
     Téléphone_Sponsor: this.state.Téléphone_Sponsor,
     Adresse_Sponsor: this.state.Adresse_Sponsor,
-    Mot_de_passe_Sponsor: this.state.Mot_de_passe_Sponsor,
+    Password: this.state.Password,
     Matricule_Sponsor: this.state.Matricule_Sponsor,
-    Image: this.state.Image,
-    
+    Image: null,
+    Role: 'Sponsor'
   };
 
 
@@ -65,13 +65,13 @@ onSubmit = event => {
       .then((res) => {
 console.log(res)
 console.log(res.data)
-
+this.props.history.push('/login1');
       }).catch((error) => {
 
           console.log(error)
       });
 
-  this.setState({ Nom_Sponsor: '',  Email_Sponsor: '', Téléphone_Sponsor: '', Adresse_Sponsor: '', Mot_de_passe_Sponsor: '', Image: ''})
+  this.setState({ Nom_Sponsor: '',  Email: '', Téléphone_Sponsor: '', Adresse_Sponsor: '', Password: '', Image: ''})
 }
 
   render() {
@@ -102,7 +102,7 @@ console.log(res.data)
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>@</InputGroupText>
                       </InputGroupAddon>
-                      <Input type="email" required  value={this.state.Email_Sponsor} placeholder="Email" autoComplete="email" onChange={this.handleChangeEmail_Sponsor}/>
+                      <Input type="email" required  value={this.state.Email} placeholder="Email" autoComplete="email" onChange={this.handleChangeEmail_Sponsor}/>
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -111,7 +111,7 @@ console.log(res.data)
                           <i className="icon-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password" required  value={this.state.Mot_de_passe_Sponsor} placeholder="Password" autoComplete="new-password" onChange={this.handleChangeMot_de_passe_Sponsor}/>                       
+                      <Input type="password" required  value={this.state.Password} placeholder="Password" autoComplete="new-password" onChange={this.handleChangeMot_de_passe_Sponsor}/>                       
                       <Input type="password" placeholder="Repeat password" autoComplete="new-password" />
 
                     </InputGroup>

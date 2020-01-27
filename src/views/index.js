@@ -1,7 +1,7 @@
 
 
 import Dashboard from './Dashboard';
-import { Login, Page404, Page500,RegisterSponsor, RegisterStudent ,RegisterAdministration,Forgetpassword,Verification, Profil, Updateprofil, AddUniversity, AddEstablishment, ClubProfil, Acceuil, Club, Eventlist } from './Pages';
+import { Login, Login1,Login2, Login3, ProfilSponsor, Page404, Page500,RegisterSponsor, RegisterStudent ,RegisterAdministration,Forgetpassword,Verification, ProfilAdministrateur, ProfilStudent, Updateprofil, AddUniversity, AddEstablishment, ClubProfil, Acceuil, Club, Eventlist } from './Pages';
 
 
 export {
@@ -9,7 +9,13 @@ export {
   Club,
   Eventlist,
   Acceuil,
+  ProfilAdministrateur,
+  ProfilStudent,
   ClubProfil,
+  Login1,
+  Login2,
+  Login3,
+  ProfilSponsor,
   Page404,
   AddUniversity,
   AddEstablishment,
@@ -21,7 +27,6 @@ export {
   RegisterSponsor,
   RegisterAdministration,
   Login,
-  Profil,
   Modals,
   Alerts,
   Flags,
