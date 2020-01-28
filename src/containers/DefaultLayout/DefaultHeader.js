@@ -7,6 +7,7 @@ import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/reac
 import logo from '../../assets/img/brand/logo.png'
 
 
+
 const propTypes = {
   children: PropTypes.node,
 };
@@ -14,6 +15,18 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = JSON.parse(localStorage.getItem("user"))
+    this.token= JSON.parse(localStorage.getItem("token"))
+    this.currentUser = "Club"
+    console.log(this.currentUser)
+    
+ 
+   
+  }
+
   render() {
 
     // eslint-disable-next-line
@@ -37,25 +50,50 @@ class DefaultHeader extends Component {
             <NavLink to="#" className="nav-link"><i className="icon-location-pin"></i></NavLink>
           </NavItem>
           <UncontrolledDropdown nav direction="down">
+      
             <DropdownToggle nav>
               <img src={'../../assets/img/avatars/8.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
             </DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
+            <DropdownMenu right>   
+             
+              {
+              this.currentUser === "Club" ? (
+                  <DropdownItem><i className="fa fa-user"></i> <NavLink to="/dashboard/clubprofil">Profil</NavLink></DropdownItem> 
+            ): this.currentUser === "Etudiant" ? (
+                  <DropdownItem><i className="fa fa-user"></i> <NavLink to="/dashboard/profilStudent">Profil</NavLink></DropdownItem>
+              ) : this.currentUser === "Sponsor" ?(
+                  <DropdownItem><i className="fa fa-user"></i> <NavLink to="/dashboard/profilSponsor">Profil</NavLink></DropdownItem>
+              ): this.currentUser === "Administateur" ?(
+                  <DropdownItem><i className="fa fa-user"></i> <NavLink to="/dashboard/profilAdministrateur">Profil</NavLink></DropdownItem>
+              ):("") 
+              }
+
+
+   
+{
+              this.currentUser === "Club" ? (
+                <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/dashboard/updateprofilClub">Update profil</NavLink></DropdownItem>
+            ): this.currentUser === "Etudiant" ? (
+                  <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/dashboard/updateprofilStudent">Update profil</NavLink></DropdownItem>
+              ) : this.currentUser === "Sponsor" ?(
+                  <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/dashboard/updateprofilSponsor">Update profil</NavLink></DropdownItem>
+              ): this.currentUser === "Administateur" ?(
+                  <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/dashboard/updateprofilAdministrateur">Update profil</NavLink></DropdownItem>
+              ):("") 
+              }
+
+              
+
               <DropdownItem><i className="fa fa-bell-o"></i> Notifications<Badge color="info">42</Badge></DropdownItem>
               <DropdownItem><i className="fa fa-envelope-o"></i> Messages<Badge color="success">42</Badge></DropdownItem>
               
               <DropdownItem header tag="div" className="text-center"><strong>Settings</strong></DropdownItem>
-              <DropdownItem><i className="fa fa-user"></i> <NavLink to="/dashboard/profil">Profil</NavLink></DropdownItem>
-              <DropdownItem><i className="fa fa-wrench"></i>  <NavLink to="/dashboard/updateProfil">Update profil</NavLink></DropdownItem>
-              
               <DropdownItem divider />
               <DropdownItem><i className="fa fa-shield"></i> Desactivate Account</DropdownItem>
               <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i> Logout</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
-        <AppAsideToggler className="d-md-down-none" />
         {/*<AppAsideToggler className="d-lg-none" mobile />*/}
       </React.Fragment>
     );

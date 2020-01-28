@@ -16,23 +16,38 @@ import {
   AppSidebarNav2 as AppSidebarNav,
 } from '@coreui/react';
 // sidebar nav config
-import navigation from '../../_nav';
+import navigation from '../../_navclub';
+import navigation1 from '../../_navetud';
+import navigation2 from '../../_navspons'
+import navigation3 from '../../_navadmin';
 // routes config
 import routes from '../../routes';
 
 //<Redirect from='/' to="/dashboard" />  
 
-const DefaultAside = React.lazy(() => import('./DefaultAside'));
+
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
-class DefaultLayout extends Component {
 
+class DefaultLayout extends Component {
+  constructor(props) {
+    super(props)
+    this.state = JSON.parse(localStorage.getItem("user"))
+    this.token= JSON.parse(localStorage.getItem("token"))
+    this.currentUser =  this.state.role
+    console.log(this.currentUser)
+    
+ 
+   
+  }
+  
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   signOut(e) {
     e.preventDefault()
-    this.props.history.push('/login')
+    localStorage.clear()
+    this.props.history.push('/Accueil')
   }
 
   render() {
@@ -48,7 +63,21 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+            {
+              this.currentUser === "Club" ? (
+    <AppSidebarNav  navConfig={navigation} {...this.props} router={router}/>
+      ) : this.currentUser === "Etudiant" ? (
+        <AppSidebarNav navConfig={navigation1} {...this.props} router={router}/>
+
+      ) : this.currentUser === "Sponsor" ?(
+      <AppSidebarNav navConfig={navigation2} {...this.props} router={router}/>
+      ): this.currentUser === "Administateur" ?(
+        <AppSidebarNav navConfig={navigation3} {...this.props} router={router}/>
+        ):("") }
+           
+            
+              
+        
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
@@ -78,11 +107,8 @@ class DefaultLayout extends Component {
             </Container>
           </main>
 
-          <AppAside fixed>
-            <Suspense fallback={this.loading()}>
-              <DefaultAside />
-            </Suspense>
-          </AppAside>
+          
+          
         </div>
         <AppFooter>
           <Suspense fallback={this.loading()}>

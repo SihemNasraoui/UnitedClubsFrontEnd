@@ -1,51 +1,34 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
 import axios from 'axios';
 
-
-class RegisterStudent extends Component {
-
-  constructor(props) {
-    super(props)    
-   
-    this.handleChangeCin = this.handleChangeCin.bind(this);
-    this.handleChangeNom_Etudiant = this.handleChangeNom_Etudiant.bind(this);
-    this.handleChangePrénom_Etudiant = this.handleChangePrénom_Etudiant.bind(this);
-    this.handleChangeDate_naissance = this.handleChangeDate_naissance.bind(this);
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
-    this.handleChangeTéléphone = this.handleChangeTéléphone.bind(this);
-    this.handleChangeAdresse_Etudiant = this.handleChangeAdresse_Etudiant.bind(this);
-    this.handleChangeMot_de_passe = this.handleChangeMot_de_passe.bind(this);
-    this.handleChangeNum_Inscription = this.handleChangeNum_Inscription.bind(this);
-    this.handleChangeNiveau_universitaire = this.handleChangeNiveau_universitaire.bind(this);
-    this.handleChangeImage = this.handleChangeImage.bind(this);
-  
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onChangeselectecole = this.onChangeselectecole.bind(this);
-    
-    this.onchangeselectuniv = this.onchangeselectuniv.bind(this);
-
-    this.state = {
-        Cin: '',
-        Nom_Etudiant: '',
-        Prénom_Etudiant: '',
-        Date_naissance: '',
-        Email: '',
-        Téléphone:'',
-        Adresse_Etudiant: '',
-        SexeU: '',
-        Mot_de_passe: '',
-        Num_Inscription: '',
-        Niveau_universitaire: '',
-        Nom_Ecole_Etudiant: '',
-        Image: '',  
-        
-    }
+class UpdateprofilClub extends Component {
+constructor(props){
+ super();
+ this.state = JSON.parse(localStorage.getItem("user"))
+ this.token= JSON.parse(localStorage.getItem("token"))
+  this.state={
+      Nom_Club: this.state.nom_Club,
+      Téléphone_Club: this.state.téléphone_Club,
+      Description: this.state.description,
+      Nombre_Membres: this.state.nombre_Membres,
+      Date_Création: this.state.date_Création,
+      Email : this.state.email,
+      Password: '',
+      Nom_université: this.state.nom_université,
+      Nom_Ecole: this.state.nom_Ecole,
+      logo: this.state.logo,
+      Role: 'Club'
+  }
+  this.onchangeselectuniv = this.onchangeselectuniv.bind(this);    
+  this.onChangeselectecole = this.onChangeselectecole.bind(this);
+  this.onChangeuser = this.onChangeuser.bind(this);
+  this.onSubmit = this.onSubmit.bind(this);    
 }
 
 
 onchangeselectuniv = (u) => {
-
+  this.setState({[u.target.name]: u.target.value});
   let choix = document.getElementById('university').value;
   var tunisdiv = document.getElementById('tunisdiv');
   var manardiv = document.getElementById('manardiv');
@@ -60,6 +43,7 @@ onchangeselectuniv = (u) => {
   var Ez_Zitounadiv = document.getElementById('Ez_Zitounadiv');
   var Mahdiadiv = document.getElementById('Mahdiadiv');
   var carthagediv = document.getElementById('carthagediv');
+
 
   if (choix === "University_of_Tunis") {
     if (tunisdiv.style.display === "") {
@@ -738,81 +722,73 @@ onchangeselectuniv = (u) => {
 
     }
   }
+
+
 }
 
-handleChangeCin = event => {   this.setState({ Cin: event.target.value }); }
-handleChangeNom_Etudiant = event => {   this.setState({ Nom_Etudiant: event.target.value }); }
-handleChangePrénom_Etudiant = event => {   this.setState({Prénom_Etudiant : event.target.value }); }
-handleChangeDate_naissance = event => {   this.setState({Date_naissance : event.target.value }); }
-handleChangeEmail = event => {   this.setState({Email : event.target.value }); }
-handleChangeTéléphone = event => {   this.setState({Téléphone : event.target.value }); }
-handleChangeAdresse_Etudiant = event => {   this.setState({ Adresse_Etudiant: event.target.value }); }
-handleChangeMot_de_passe = event => {   this.setState({Password : event.target.value }); }
-handleChangeNum_Inscription = event => {   this.setState({ Num_Inscription: event.target.value }); }
-handleChangeNiveau_universitaire = event => {   this.setState({Niveau_universitaire : event.target.value }); }
-handleChangeNom_Ecole_Etudiant = event => {   this.setState({ Nom_Ecole_Etudiant: event.target.value }); }
-handleChangeImage = event => {   this.setState({ Image: event.target.value }); }
+onChangeselectecole(e)
+  { 
+      this.setState({ [e.target.name] : e.target.value });
+  }
 
-onChangeselectecole(e){
-  this.setState({[e.target.name]: e.target.value});
- }
-
- this.selectedFile= btoa(this.selectedFile); 
-onSubmit = event => {
-  event.preventDefault()
-
-  var user = {
-    Cin: this.state.Cin,
-    Nom_Etudiant: this.state.Nom_Etudiant,
-    Prénom_Etudiant: this.state.Prénom_Etudiant,
-    Date_naissance: this.state.Date_naissance,
-    Email: this.state.Email,
-    Téléphone: this.state.Téléphone,
-    Adresse_Etudiant: this.state.Adresse_Etudiant,
-    Password: this.state.Password,
-    Num_Inscription: this.state.Num_Inscription,
-    Niveau_universitaire: this.state.Niveau_universitaire,
-    Nom_Ecole_Etudiant: this.state.Nom_Ecole_Etudiant,
-    Role: 'Etudiant',
-    Image: this.state.Image,   
-  
-    
-  };
-
-console.log(user)
-
-  axios.post('https://localhost:5001/Etudiant', user)
+  onChangeuser(x)
+  { 
+    this.setState({ [x.target.name] : x.target.value });
+}
+  onSubmit = event => {
+    event.preventDefault()
+    var club = {
+      Nom_Club: this.state.Nom_Club,
+      Téléphone_Club: this.state.Téléphone_Club,
+      Nombre_Membres: this.state.Nombre_Membres,
+      Description: this.state.Description,
+      Date_Création: this.state.Date_Création,
+      Email: this.state.Email,
+      Password: this.state.Password,
+      Nom_université: this.state.Nom_université,
+      Nom_Ecole: this.state.Nom_Ecole,
+      logo: this.state.logo,
+      Role: 'Club'
+      
+    };
+    axios.put('https://localhost:5001/api/Club', club)
       .then((res) => {
+console.log(res)
 console.log(res.data)
-        this.props.history.push('/loginStudent');
+this.props.history.push('/dashboard/clubprofil');
       }).catch((error) => {
-     
+
           console.log(error)
       });
 
-      this.setState({ Cin: '', Nom_Etudiant: '', Prénom_Etudiant: '', Date_naissance: '', Email: '', Téléphone: '', Adresse_Etudiant: '', Password: '', Num_Inscription: '', Nom_Ecole_Etudiant: '', Image: '', })
-    }
+}
 
 
-  render() {
-    return (
-      <div className="app flex-row align-items-center">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md="9" lg="7" xl="6">
-              <Card className="mx-4">
-                <CardBody className="p-4">
-               
-                  <form onSubmit={this.onSubmit}>
-                    <h1>Register</h1>
-                    <p className="text-muted">Create your account</p>
+     
+
+
+
+    render() {
+      return (    
+
+        <div className="container-fluid">
+          <div className="animated fadeIn">
+            <div className="row">
+              <div className="col-lg-12">
+              
+                <Card className="mx-4">
+                  <CardBody className="p-4">
+                   
+                  <form onSubmit={this.onSubmit}> 
+                    <h2>Update CLUB</h2>
+                    <p className="text-muted">Update your club profil</p>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
                           <i className="icon-user"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" value={this.state.Nom_Etudiant} placeholder="Firstname" autoComplete="Firstname" onChange={this.handleChangeNom_Etudiant} /><Input type="text"  value={this.state.lastname} placeholder="Lastname" autoComplete="Lastname" onChange={this.handleChangePrénom_Etudiant}  />
+                      <Input type="text" name="Nom_Club"  required  value={this.state.Nom_Club}  autoComplete="Clubname"  onChange={this.onChangeuser}/>
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -821,15 +797,14 @@ console.log(res.data)
                           <i className="fa fa-id-card-o"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" value={this.state.Cin} placeholder="Cin" autoComplete="Cin" onChange={this.handleChangeCin} />
+                      <Input type="textarea" name="Description" value={this.state.Description} required  autoComplete=" Description of the club" onChange={this.onChangeuser}/>
                     </InputGroup>
-
 
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>@</InputGroupText>
                       </InputGroupAddon>
-                      <Input type="email" value={this.state.Email} placeholder="Email" autoComplete="email" onChange={this.handleChangeEmail} />
+                      <Input type="email" name="Email" required  value={this.state.Email} autoComplete="email" onChange={this.onChangeuser}/>
                     </InputGroup>
 
                     <InputGroup className="mb-3">
@@ -838,7 +813,18 @@ console.log(res.data)
                           <i className="icon-lock"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password"  value={this.state.Password} placeholder="Password" autoComplete="new-password" onChange={this.handleChangeMot_de_passe} />                       <Input type="password" placeholder="Repeat password" autoComplete="new-password" />
+                      <Input type="password" name="Password"  required  value={this.state.Password} autoComplete="new-password" onChange={this.onChangeuser} />              
+                               <Input type="password" required placeholder="Repeat password"  autoComplete="new-password" />
+
+                    </InputGroup>
+
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="icon-lock"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input type="text" value={this.state.Nombre_Membres}  required placeholder="Numbre of Members" name="Nombre_Membres" onChange={this.onChangeuser}/>              
 
                     </InputGroup>
 
@@ -848,48 +834,22 @@ console.log(res.data)
                           <i className="icon-phone"></i>
                         </InputGroupText>
                       </InputGroupAddon>
-                      <Input type="number" value={this.state.Téléphone} placeholder="Phone" autoComplete="Phone" onChange={this.handleChangeTéléphone} /><InputGroupAddon addonType="prepend">
-                        <InputGroupText>
-                          <i className="icon-location-pin"></i>
-                        </InputGroupText>
+                      <Input type="phone" name="Téléphone_Club" required  value={this.state.Téléphone_Club} autoComplete="Phone" onChange={this.onChangeuser}  /><InputGroupAddon addonType="prepend">
+                     
                       </InputGroupAddon>
-                      <Input type="text"  value={this.state.Adresse_Etudiant} placeholder="Address" autoComplete="Address" onChange={this.handleChangeAdresse_Etudiant} />
                     </InputGroup>
 
+                    <div>
 
 
-                    <InputGroup className="mb-3">
-                      <InputGroupAddon addonType="prepend">
-                        <InputGroupText>
-                          <i className="icon-calendar"></i>
-                        </InputGroupText>
-                      </InputGroupAddon>
-                      <Input value={this.state.Date_naissance} type="date" onChange={this.handleChangeDate_naissance} />
-                    </InputGroup>
-
-
-                    
-
-  
-                    
-                                  
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-user"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="text" value={this.state.Niveau_universitaire} placeholder="Level" autoComplete="Level" onChange={this.handleChangeNiveau_universitaire}/><Input type="text" value={this.state.inscriptionnumber} placeholder="Inscription Number" autoComplete="Inscription Number" onChange={this.handleChangeNum_Inscription}/>
-                      </InputGroup>
-
-
-                      <div id="universitydiv"  >
+<div id="universitydiv"  >
           <InputGroup className="mb-3">
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
+
             <Input type="select"   name="Nom_université" id="university" onChange={this.onchangeselectuniv.bind(this)} >
               <option disabled selected>Select your university</option>
               <option value="University_of_Tunis">University of Tunis</option>
@@ -909,7 +869,6 @@ console.log(res.data)
             </Input>
           </InputGroup>
         </div>
-
         <div id="tunisdiv" style={{ display: 'none' }} >
           <InputGroup className="mb-3">
             <InputGroupAddon addonType="prepend">
@@ -917,7 +876,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant"  >
+            <Input type="select" onChange={this.onChangeselectecole.bind(this)} name="Nom_Ecole"  >
               <option disabled selected>Select </option>
               <option value="fshst">Faculté des Sciences Humaines et Sociales de Tunis</option>
               <option value="essect ">Ecole Supérieure des Sciences Economiques et Commerciales de Tunis </option>
@@ -946,7 +905,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option disabled selected>Select </option>
               <option value="fdspt">Faculté de Droit et des Sciences Politiques de Tunis</option>
               <option value="fsegt">Faculté des Sciences Economique et de Gestion de Tunis </option>
@@ -976,7 +935,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option disabled selected>Select </option>
               <option value="flahm">Faculté des Lettres, des Arts et des Humanités de la Manouba</option>
               <option value="esstd">Ecole Supérieure des Sciences et Technologies du Design</option>
@@ -1003,7 +962,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="fdseps">Faculté de Droit et des Sciences Economiques et Politiques de Sousse</option>
               <option value="fms">Faculté de Médecine de Sousse</option>
               <option value="flshs">Faculté des Lettres et des Sciences Humaines de Sousse </option>
@@ -1031,7 +990,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="fsegs">Faculté des Sciences Economiques et de Gestion de Sfax  </option>
               <option value="fms">Faculté de Médecine de Sfax  </option>
               <option value="fds">Faculté de droit de Sfax</option>
@@ -1063,7 +1022,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="fsm">Faculté des Sciences de Monastir</option>
               <option value="fmm">Faculté de Médecine de Monastir</option>
               <option value="isimm">Institut Supérieur d'Informatique et de Mathématiques de Monastir</option>
@@ -1090,7 +1049,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="isstt"> Institut Supérieur de Théologie de Tunis</option>
               <option value="isscit">Institut Supérieur de Civilisation Islamique de Tunis</option>
               <option value="ceik">Centre de Études Islamiques de Kairouan</option>
@@ -1104,7 +1063,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="isefc"> Institut Supérieur de l'Education et de la Formation Continues</option>
             </Input>
           </InputGroup>
@@ -1116,7 +1075,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="fsg">  Faculté des Sciences de Gafsa</option>
               <option value="iseahg">  Institut Supérieur des Etudes Appliquées en Humanités de Gafsa</option>
               <option value="isaeg">  Institut Supérieur d 'Administration des Entreprises de Gafsa</option>
@@ -1136,7 +1095,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="isetSfax"> Institut Supérieur des Etudes Technologiques de Sfax</option>
               <option value="isetKebili"> Institut Supérieur des Etudes Technologiques de Kebili</option>
               <option value="isetGabès"> Institut Supérieur des Etudes Technologiques de Gabès</option>
@@ -1171,7 +1130,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="">Faculté des Sciences Juridiques, Economiques et de Gestion de Jendouba</option>
               <option value="iseahk">Institut Supérieur des Etudes Appliquées en Humanités du Kef</option>
               <option value="islaib">Institut Supérieur des Langues Appliquées et d'Informatique de Béja</option>
@@ -1195,7 +1154,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value=""> Faculté des Sciences de Gabès</option>
               <option value="enig">Ecole Nationale d'Ingénieurs de Gabès</option>
               <option value="isgg">Institut Supérieur de Gestion de Gabès</option>
@@ -1223,7 +1182,7 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
               <option value="flsh">  Faculté des Lettres et des Sciences Humaines de Kairouan</option>
               <option value="isamk"> Institut Supérieur des Arts et Métiers de Kairouan</option>
               <option value="isigk"> Institut Supérieur d 'Informatique et de Gestion de Kairouan</option>
@@ -1245,40 +1204,49 @@ console.log(res.data)
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole_Etudiant" >
+            <Input type="select" onChange={this.onChangeselectecole} name="Nom_Ecole" >
 
             </Input>
           </InputGroup>
         </div>
 
 
-
-
-
-
-
+      </div>
 
 
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-camera"></i>
+                          <i className="icon-calendar"> &nbsp;Date of creation</i>
                         </InputGroupText>
-                      </InputGroupAddon> <input type="file" value={this.state.Image} id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg " onChange={this.handleChangeImage}/>
+                      </InputGroupAddon>
+                      <Input type="date" name="Date_Création" onChange={this.onChangeuser}/>
+                    </InputGroup>
+
+                    <InputGroup className="mb-3">
+                      <InputGroupAddon addonType="prepend">
+
+                        <InputGroupText>
+                          <i className="icon-camera"> &nbsp; &nbsp;LOGO</i>
+                        </InputGroupText>
+                      </InputGroupAddon> <input  type="file"  name="logo" accept="image/png, image/jpeg" onChange={this.onChangeuser}/>
                     </InputGroup>
 
 
-                    <Button type="submit" color="info" block>Create Account</Button>
-                  </form>
-                </CardBody>
-                
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
+                    <Button type="submit"  color="warning" block>Update</Button>
+                    </form>
+                  </CardBody>
+           
+                </Card>
+           
+         </div>
+         </div>
+         </div>
+         </div>
+     
+      );
+    }
   }
-}
-
-export default RegisterStudent;
+  
+  export default UpdateprofilClub;
+  

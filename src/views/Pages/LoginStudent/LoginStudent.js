@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import axios from 'axios';
 
-
-class Login extends Component {
+class LoginStudent extends Component {
 
   constructor(props) {
     super(props)
@@ -37,12 +36,13 @@ class Login extends Component {
       Password: this.state.Password,  
     };
 console.log(user);
-    axios.post('https://localhost:5001/api/Club/SignIn/', user)
+    axios.post('https://localhost:5001/Etudiant/SignIn', user)
       .then((res) => {
        if(res["data"]["response"]!="vous devez créer  vérifiez vos informations de connexion"){
-        this.props.history.push('/dashboard/clubprofil');
+        this.props.history.push('/dashboard/profilStudent');
         localStorage.setItem("token",JSON.stringify(res["data"]["token"]))
         localStorage.setItem("user",JSON.stringify(res["data"]["response"]))
+        console.log()
        }else
        {   console.log(res["data"]["response"]) }
     
@@ -86,9 +86,7 @@ console.log(user);
                         <Col xs="6">
                           <Button color="primary" className="px-4">Login</Button>
                         </Col>
-                        <Col xs="6" className="text-right">
-                          <Button color="link" className="px-0" > <Link to="Forgetpassword"> Forgot password?</Link></Button>
-                        </Col>
+                   
                       </Row>
                     </form>
                   </CardBody>
@@ -113,4 +111,4 @@ console.log(user);
   }
 }
 
-export default Login;
+export default LoginStudent;

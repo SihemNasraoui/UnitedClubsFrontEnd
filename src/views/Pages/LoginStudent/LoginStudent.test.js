@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
 
 
-import Login2 from './Login2';
+import LoginStudent from './LoginStudent';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

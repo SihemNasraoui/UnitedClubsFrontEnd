@@ -1,0 +1,6 @@
+{
+  "name": "LoginClub",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./LoginClub.js"
+}

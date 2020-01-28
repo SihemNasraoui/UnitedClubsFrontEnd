@@ -25,26 +25,49 @@ render() {
             </CardHeader>
             <CardBody>
               <Breadcrumb>
-                <BreadcrumbItem active>Nom sponsor : { this.state.nom_Sponsor}</BreadcrumbItem>
+                <BreadcrumbItem active>Nom : { this.state.nom_Etudiant}</BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>
-                <BreadcrumbItem active>Matricule sponsor  : { this.state.matricule_Sponsor}</BreadcrumbItem>
+                <BreadcrumbItem active>Prénom  : { this.state.prénom_Etudiant}</BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>
-                <BreadcrumbItem active>Email sponsor : { this.state.email_Sponsor}</BreadcrumbItem>
+                <BreadcrumbItem active>CIN  : { this.state.cin}</BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>
-                <BreadcrumbItem active>Téléphone sponsor : { this.state.téléphone_Sponsor}</BreadcrumbItem>
+                <BreadcrumbItem active>Date de naissance  : { this.state.date_naissance}</BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>
-                <BreadcrumbItem active>Adresse sponsor : { this.state.adresse_Sponsor}</BreadcrumbItem>
+                <BreadcrumbItem active>Email  : { this.state.email}</BreadcrumbItem>
               </Breadcrumb>
 
-             
+              <Breadcrumb>
+                <BreadcrumbItem active>Téléphone  : { this.state.téléphone}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Adresse  : { this.state.adresse_Etudiant}</BreadcrumbItem>
+              </Breadcrumb>
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Nom école  : { this.state.nom_Ecole_Etudiant}</BreadcrumbItem>
+              </Breadcrumb>
+              
+              <Breadcrumb>
+                <BreadcrumbItem active>Niveau universitaire  : { this.state.niveau_universitaire}</BreadcrumbItem>
+              </Breadcrumb>
+
+
+              <Breadcrumb>
+                <BreadcrumbItem active>Numéro insciption  : { this.state.num_Inscription}</BreadcrumbItem>
+              </Breadcrumb>
+
+
+        
+
 
             </CardBody>
           </Card>

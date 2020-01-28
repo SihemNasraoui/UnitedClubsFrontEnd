@@ -1,0 +1,6 @@
+{
+  "name": "AddEvent",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AddEvent.js"
+}

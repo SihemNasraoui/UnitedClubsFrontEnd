@@ -33,7 +33,7 @@ render() {
               </Breadcrumb>
 
               <Breadcrumb>
-                <BreadcrumbItem active>Email sponsor : { this.state.email_Sponsor}</BreadcrumbItem>
+                <BreadcrumbItem active>Email sponsor : { this.state.email}</BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>

@@ -8,8 +8,7 @@ class Universite extends Component {
     this.state ={
       Nom_université:'',
       Nom_Ecole:''}
-      this.handleChangeUniv = this.handleChangeUniv.bind(this);
-      this.handleChangeEcole = this.handleChangeEcole.bind(this);
+      this.onChange= this.onChange.bind(this);
       this.demoMethod= this.demoMethod.bind(this);
       this.demoMethod1= this.demoMethod1.bind(this);
       this.onchangeselectuniv = this.onchangeselectuniv.bind(this);
@@ -23,7 +22,7 @@ class Universite extends Component {
   onchangeselectuniv = (u) => {
     this.setState({[u.target.name]: u.target.value});
     let choix = document.getElementById('university').value;
-    this.demoMethod(this.state.Nom_université);
+   this.demoMethod(this.state.Nom_université);
     var tunisdiv = document.getElementById('tunisdiv');
     var manardiv = document.getElementById('manardiv');
     var manoubadiv = document.getElementById('manoubadiv');
@@ -738,7 +737,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select"   name="Nom_université" id="university" onChange={this.handleChangeUniv.bind(this)} >
+            <Input type="select"   name="Nom_université" id="university" onChange={this.onchangeselectuniv.bind(this)} >
               <option disabled selected>Select your university</option>
               <option value="University_of_Tunis">University of Tunis</option>
               <option value="University of_Tunis_El_Manar">University of Tunis El Manar </option>
@@ -764,7 +763,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole"  >
+            <Input type="select" onChange={this.onChange.bind(this)} name="Nom_Ecole"  >
               <option disabled selected>Select </option>
               <option value="fshst">Faculté des Sciences Humaines et Sociales de Tunis</option>
               <option value="essect ">Ecole Supérieure des Sciences Economiques et Commerciales de Tunis </option>
@@ -793,7 +792,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option disabled selected>Select </option>
               <option value="fdspt">Faculté de Droit et des Sciences Politiques de Tunis</option>
               <option value="fsegt">Faculté des Sciences Economique et de Gestion de Tunis </option>
@@ -823,7 +822,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option disabled selected>Select </option>
               <option value="flahm">Faculté des Lettres, des Arts et des Humanités de la Manouba</option>
               <option value="esstd">Ecole Supérieure des Sciences et Technologies du Design</option>
@@ -850,7 +849,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="fdseps">Faculté de Droit et des Sciences Economiques et Politiques de Sousse</option>
               <option value="fms">Faculté de Médecine de Sousse</option>
               <option value="flshs">Faculté des Lettres et des Sciences Humaines de Sousse </option>
@@ -878,7 +877,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="fsegs">Faculté des Sciences Economiques et de Gestion de Sfax  </option>
               <option value="fms">Faculté de Médecine de Sfax  </option>
               <option value="fds">Faculté de droit de Sfax</option>
@@ -910,7 +909,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="fsm">Faculté des Sciences de Monastir</option>
               <option value="fmm">Faculté de Médecine de Monastir</option>
               <option value="isimm">Institut Supérieur d'Informatique et de Mathématiques de Monastir</option>
@@ -937,7 +936,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="isstt"> Institut Supérieur de Théologie de Tunis</option>
               <option value="isscit">Institut Supérieur de Civilisation Islamique de Tunis</option>
               <option value="ceik">Centre de Études Islamiques de Kairouan</option>
@@ -951,7 +950,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="isefc"> Institut Supérieur de l'Education et de la Formation Continues</option>
             </Input>
           </InputGroup>
@@ -963,7 +962,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="fsg">  Faculté des Sciences de Gafsa</option>
               <option value="iseahg">  Institut Supérieur des Etudes Appliquées en Humanités de Gafsa</option>
               <option value="isaeg">  Institut Supérieur d 'Administration des Entreprises de Gafsa</option>
@@ -983,7 +982,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="isetSfax"> Institut Supérieur des Etudes Technologiques de Sfax</option>
               <option value="isetKebili"> Institut Supérieur des Etudes Technologiques de Kebili</option>
               <option value="isetGabès"> Institut Supérieur des Etudes Technologiques de Gabès</option>
@@ -1018,7 +1017,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="">Faculté des Sciences Juridiques, Economiques et de Gestion de Jendouba</option>
               <option value="iseahk">Institut Supérieur des Etudes Appliquées en Humanités du Kef</option>
               <option value="islaib">Institut Supérieur des Langues Appliquées et d'Informatique de Béja</option>
@@ -1042,7 +1041,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value=""> Faculté des Sciences de Gabès</option>
               <option value="enig">Ecole Nationale d'Ingénieurs de Gabès</option>
               <option value="isgg">Institut Supérieur de Gestion de Gabès</option>
@@ -1070,7 +1069,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
               <option value="flsh">  Faculté des Lettres et des Sciences Humaines de Kairouan</option>
               <option value="isamk"> Institut Supérieur des Arts et Métiers de Kairouan</option>
               <option value="isigk"> Institut Supérieur d 'Informatique et de Gestion de Kairouan</option>
@@ -1092,7 +1091,7 @@ class Universite extends Component {
                 <i className="icon-graduation"></i>
               </InputGroupText>
             </InputGroupAddon>
-            <Input type="select" onChange={this.handleChangeEcole} name="Nom_Ecole" >
+            <Input type="select" onChange={this.onChange} name="Nom_Ecole" >
 
             </Input>
           </InputGroup>

@@ -6,7 +6,7 @@ class ProfilAdministrateur extends Component {
     super(props)
     this.state = JSON.parse(localStorage.getItem("user"))
     this.token= JSON.parse(localStorage.getItem("token"))
-    /* localStorage.clear()*/
+
     console.log(this.state)
 }
  
@@ -37,7 +37,7 @@ render() {
               </Breadcrumb>
 
               <Breadcrumb>
-                <BreadcrumbItem active> Nom ecole administrateur : { this.state.Nom_Ecole_Administration}</BreadcrumbItem>
+                <BreadcrumbItem active> Nom ecole administrateur : { this.state.nom_Ecole_Administration}</BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>

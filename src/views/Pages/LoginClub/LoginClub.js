@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import axios from 'axios';
 
-class Login1 extends Component {
+
+class LoginClub extends Component {
 
   constructor(props) {
     super(props)
@@ -35,15 +36,18 @@ class Login1 extends Component {
       Email: this.state.Email,
       Password: this.state.Password,  
     };
-console.log(user);
-    axios.post('https://localhost:5001/Sponsor/SignIn/', user)
+
+    axios.post('https://localhost:5001/api/Club/SignIn/', user)
       .then((res) => {
        if(res["data"]["response"]!="vous devez créer  vérifiez vos informations de connexion"){
-        this.props.history.push('/dashboard/profilSponsor');
+        this.props.history.push('/dashboard/clubprofil');
         localStorage.setItem("token",JSON.stringify(res["data"]["token"]))
         localStorage.setItem("user",JSON.stringify(res["data"]["response"]))
+        this.state = JSON.parse(localStorage.getItem("user"))
+        console.log(this.state.Role)
        }else
        {   console.log(res["data"]["response"]) }
+
     
       }).catch((error) => {
 
@@ -112,4 +116,4 @@ console.log(user);
   }
 }
 
-export default Login1;
+export default LoginClub;

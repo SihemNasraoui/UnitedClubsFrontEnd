@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-
-
-import Login3 from './Login3';
+import LoginClub from './LoginClub';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<MemoryRouter><Login/></MemoryRouter>, div);
+  ReactDOM.render(<MemoryRouter><LoginClub/></MemoryRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 });

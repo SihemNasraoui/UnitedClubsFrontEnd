@@ -65,7 +65,7 @@ onSubmit = event => {
       .then((res) => {
 console.log(res)
 console.log(res.data)
-this.props.history.push('/login1');
+this.props.history.push('/loginSponsor');
       }).catch((error) => {
 
           console.log(error)

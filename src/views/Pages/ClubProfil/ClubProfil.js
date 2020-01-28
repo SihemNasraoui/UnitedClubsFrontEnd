@@ -9,7 +9,6 @@ class ClubProfil extends Component {
     super(props)
     this.state = JSON.parse(localStorage.getItem("user"))
     this.token= JSON.parse(localStorage.getItem("token"))
-    /* localStorage.clear()*/
     console.log(this.state)
 }
  
@@ -28,7 +27,7 @@ render() {
             </CardHeader>
             <CardBody>
               <Breadcrumb>
-                <BreadcrumbItem active>Identifiant Club : { this.state.id_Club}</BreadcrumbItem>
+                <BreadcrumbItem active>Identifiant Club : { this.state.id_Club} </BreadcrumbItem>
               </Breadcrumb>
 
               <Breadcrumb>

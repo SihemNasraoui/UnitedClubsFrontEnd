@@ -157,22 +157,42 @@ class DemoNavbar extends React.Component {
                 </Button>
               </div>
             </Modal>
+
+
+
+
            
+
+
+
+
+                        
+                       
+                      </div>
+                  </NavItem>
+               
+               
+
+
+                  <NavItem className="d-none d-lg-block ml-lg-4">
+                  <div className="btn-wrapper">
+                       
+                       
+                    
+                      
                         <Button
-                          className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
-                          color="default"
+                          className="btn-icon mb-3 mb-sm-0"
+                          color="white"
                           type="button"
-                          onClick={() => this.toggleModal("defaultModal")}
-                        >    
-                          <span className="btn-inner--text">
-                            Sign in
-                          </span>
+                          onClick={() => this.toggleModal("Modal")}>
+                  <span className="btn-inner--text">Sign in</span>
+
                         </Button>
-                        <Modal
+            <Modal
               className="modal-dialog-centered "
            
-              isOpen={this.state.defaultModal}
-              toggle={() => this.toggleModal("defaultModal")}
+              isOpen={this.state.Modal}
+              toggle={() => this.toggleModal("Modal")}
             >
               <div className="modal-header">
                 <h1 className="modal-title text-info" id="modal-title-notification">
@@ -183,7 +203,7 @@ class DemoNavbar extends React.Component {
                   className="close"
                   data-dismiss="modal"
                   type="button"
-                  onClick={() => this.toggleModal("defaultModal")}
+                  onClick={() => this.toggleModal("Modal")}
                 >
                   <span aria-hidden={true}>×</span>
                 </button>
@@ -191,7 +211,7 @@ class DemoNavbar extends React.Component {
               <div className="modal-body">
               <Row>
     <Col>
-  <Link to="/Login">
+  <Link to="/loginClub">
                 <img
                   alt="..."
                   height="150"
@@ -201,7 +221,7 @@ class DemoNavbar extends React.Component {
   
     </Col>
     <Col>
-    <Link to="/Login2">
+    <Link to="/loginStudent">
                 <img
                   alt="..."
                   height="150"
@@ -210,7 +230,7 @@ class DemoNavbar extends React.Component {
   </Link>    </Col>
   
   <Col>
-    <Link to="/Login3">
+    <Link to="/loginAdministrateur">
                 <img
                   alt="..."
                   height="150"
@@ -218,7 +238,7 @@ class DemoNavbar extends React.Component {
                 /><h2 className="modal-title text-info" >   Administration</h2>
   </Link>    </Col>
   <Col>
-  <Link to="/login1">
+  <Link to="/loginSponsor">
                 <img
                   alt="..."
                   height="150"
@@ -236,14 +256,32 @@ class DemoNavbar extends React.Component {
                   color="link"
                   data-dismiss="modal"
                   type="button"
-                  onClick={() => this.toggleModal("defaultModal")}
+                  onClick={() => this.toggleModal("Modal")}
                 >
                   Close
                 </Button>
               </div>
             </Modal>
+
+
+
+
+           
+
+
+
+
+                        
+                       
                       </div>
                   </NavItem>
+
+
+
+             
+               
+               
+               
                 </Nav>
               </UncontrolledCollapse>
             </Container>

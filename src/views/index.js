@@ -1,25 +1,26 @@
 
 
 import Dashboard from './Dashboard';
-import { Login, Login1,Login2, Login3, ProfilSponsor, Page404, Page500,RegisterSponsor, RegisterStudent ,RegisterAdministration,Forgetpassword,Verification, ProfilAdministrateur, ProfilStudent, Updateprofil, AddUniversity, AddEstablishment, ClubProfil, Acceuil, Club, Eventlist } from './Pages';
+import { Login,UpdateprofilClub, LoginSponsor,LoginStudent,AddEvent, LoginAdministrateur, ProfilSponsor, Page404, Page500,RegisterSponsor, RegisterStudent ,RegisterAdministration,Forgetpassword,Verification, ProfilAdministrateur, ProfilStudent, AddUniversity, AddEstablishment, ClubProfil, Acceuil, Club, Eventlist } from './Pages';
 
 
 export {
   Badges,
   Club,
+  AddEvent,
   Eventlist,
   Acceuil,
   ProfilAdministrateur,
   ProfilStudent,
   ClubProfil,
-  Login1,
-  Login2,
-  Login3,
+  LoginSponsor,
+  LoginStudent,
+  UpdateprofilClub,
+  LoginAdministrateur,
   ProfilSponsor,
   Page404,
   AddUniversity,
   AddEstablishment,
-  Updateprofil,
   Forgetpassword,
   Verification,
   Page500,

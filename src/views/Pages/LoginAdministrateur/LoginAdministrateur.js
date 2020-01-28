@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 import axios from 'axios';
 
-class Login3 extends Component {
+class LoginAdministrateur extends Component {
 
   constructor(props) {
     super(props)
@@ -40,6 +40,8 @@ console.log(user);
       .then((res) => {
        if(res["data"]["response"]!="vous devez créer  vérifiez vos informations de connexion"){
         this.props.history.push('/dashboard/profilAdministrateur');
+        localStorage.setItem("token",JSON.stringify(res["data"]["token"]))
+        localStorage.setItem("user",JSON.stringify(res["data"]["response"]))
        }else
        {   console.log(res["data"]["response"]) }
     
@@ -83,9 +85,7 @@ console.log(user);
                         <Col xs="6">
                           <Button color="primary" className="px-4">Login</Button>
                         </Col>
-                        <Col xs="6" className="text-right">
-                          <Button color="link" className="px-0" > <Link to="Forgetpassword"> Forgot password?</Link></Button>
-                        </Col>
+                   
                       </Row>
                     </form>
                   </CardBody>
@@ -110,4 +110,4 @@ console.log(user);
   }
 }
 
-export default Login3;
+export default LoginAdministrateur;
